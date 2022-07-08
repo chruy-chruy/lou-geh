@@ -30,7 +30,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             if ($row['username'] === $uname && $row['password'] === $pass) {
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['id'] = $row['id'];
-                header("Location: dashboard/");
+                header("Location: home/");
                 exit();
             }
         } else {
