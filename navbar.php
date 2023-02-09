@@ -61,6 +61,12 @@ if (!isset($_SESSION['id'])) {
                     <?php if ($page == 'Supplier') {echo 'active';} ?>"><i
                       class="fas fa-lock fa-fw me-3"></i><span>Supplier</span>
                     </a>  
+
+                    <a href="../user/" class="list-group-item list-group-item-action py-2 ripple 
+                    <?php if ($page == 'User') {echo 'active';}  ?>" 
+                    <?php if ($_SESSION['role'] != 'Admin') {echo 'hidden';}  ?>>
+                    <i class="fas fa-lock fa-fw me-3"></i><span>User</span>
+                    </a>    
                     
                     <a href="../log-out.php" class="list-group-item list-group-item-action py-2 ripple"><i
                       class="fas fa-lock fa-fw me-3"></i><span>Logout</span>
