@@ -67,6 +67,15 @@ if(isset($_GET['message'])){
     required>
   </div>
 
+  <div class="col-md-6">
+    <label for="" class="form-label">Role</label>
+    <select name="role" id="role" class="form-select" required> 
+    <option value="" selected disabled hidden>--</option>
+  <option value="Staff" >Staff</option>
+  <option value="Admin">Admin</option>
+</select>
+  </div>
+
   <div class="col-12">
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>

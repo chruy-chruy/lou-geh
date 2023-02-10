@@ -26,7 +26,7 @@ include "../navbar.php";
   }</style>
 <body>
 <div>
-        <img src="../assets/images/bg.png"
+        <img src="../assets/images/bg.jpeg"
         style=" position: relative;
         left: 250px;
  height: 87vh;

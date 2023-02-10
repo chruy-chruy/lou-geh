@@ -52,23 +52,36 @@ include "../db_conn.php";
   </div>
 
   <div class="col-6">
-    <label class="form-label">Barcode</label>
-    <label class="form-control" id="barcode2"><?php echo $row['barcode'] ?></label>
+    <label class="form-label">Brand Name</label>
+    <input type="text" class="form-control" id="brand" name="brand" value="<?php echo $row['brand'] ?>" required>
   </div>
 
+ 
   <div class="col-md-6">
     <label for="" class="form-label">Quantity</label>
     <input type="number"  class="form-control" id="quantity" name="quantity" value="<?php echo $row['quantity'] ?>" required>
   </div>
 
   <div class="col-md-6">
-    <label for="" class="form-label">Price</label>
+    <label for="" class="form-label">Price per unit</label>
     <input type="number" step=0.01 class="form-control" id="price" name="price" value="<?php echo $row['price'] ?>" required>
   </div>
 
+  <div class="col-md-6">
+    <label for="" class="form-label">Selling Price</label>
+    <input type="number" step=0.01 class="form-control" id="selling_price" name="selling_price" value="<?php echo $row['selling_price'] ?>" required>
+  </div>
+
+  <div class="col-md-6">
+    <label for="" class="form-label">Expected Revenue</label>
+    <input type="number" step=0.01 class="form-control" id="revenue" name="revenue" value="<?php echo $row['revenue'] ?>" hidden required>
+    <label class="form-control" id="revenue2"><?php echo $row['revenue'] ?></label>
+  </div>
+
+
   <div class="col-md-12">
     <label for="" class="form-label">Product Description</label>
-    <textarea  class="form-control" id="details" name="details"  required><?php echo $row['details'] ?></textarea>
+    <textarea  class="form-control" id="details" rows=8 name="details" required><?php echo $row['details'] ?></textarea>
   </div>
 
   <div class="col-6">
@@ -108,10 +121,4 @@ include "../db_conn.php";
  </html>
  <?php }?>
  <script src="../assets/js/table.js"></script>
- <script>
- var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
-
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-})</script>
+ <script src="../assets/js/script_product.js"></script>

@@ -30,21 +30,24 @@ if (isset($_SESSION['id'])) {
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <title>Lou Geh SuperMarket</title>
+    <title>Purchasing and Inventory System</title>
 </head>
 
 <body>
-<section class="vh-100">
+<section class="vh-100" style=" position: relative;
+  margin: auto;
+  width: 100%;
+  padding: 100px; " >
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-6 col-lg-6 col-xl-3">
-        <img src="assets/images/Cream Minimalist Store Highlight Covers.png"
+        <img src="assets/images/1.jpg"
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form action="check_login.php" class="login__form" method="POST">
         <div class="form-outline mb-5">
-            <h1>Lou Geh Supermarket</h1>
+            <h1>Inventory System</h1>
           </div>
           <!-- Email input -->
           <div class="form-outline mb-4">

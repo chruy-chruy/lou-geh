@@ -57,10 +57,14 @@ include "../db_conn.php";
   </div>
 
   <div class="col-6">
+    <label class="form-label">Brand Name</label>
+    <input type="text" class="form-control" id="brand" name="brand" required>
+  </div>
+  <!-- <div class="col-6">
     <label class="form-label">Barcode</label>
     <input type="text" class="form-control" id="barcode" name="barcode" hidden required>
     <label class="form-control" id="barcode2"></label>
-  </div>
+  </div> -->
 
   <div class="col-md-6">
     <label for="" class="form-label">Quantity</label>
@@ -68,8 +72,19 @@ include "../db_conn.php";
   </div>
 
   <div class="col-md-6">
-    <label for="" class="form-label">Price</label>
+    <label for="" class="form-label">Price per unit</label>
     <input type="number" step=0.01 class="form-control" id="price" name="price" required>
+  </div>
+
+  <div class="col-md-6">
+    <label for="" class="form-label">Selling Price</label>
+    <input type="number" step=0.01 class="form-control" id="selling_price" name="selling_price" required>
+  </div>
+
+  <div class="col-md-6">
+    <label for="" class="form-label">Expected Revenue</label>
+    <input type="number" step=0.01 class="form-control" id="revenue" name="revenue" hidden required>
+    <label class="form-control" id="revenue2">0</label>
   </div>
 
   <div class="col-md-12">
@@ -85,17 +100,5 @@ include "../db_conn.php";
   </div>
  </body>
  </html>
- <script>
-  const barcode = Date.now();
-  document.getElementById("barcode").value = barcode;
-  const barcode2 = barcode;
-document.getElementById("barcode2").innerHTML = barcode2;
-    $(document).ready(function () {
-        $("#supplier").change(function() {
-
-
-          })
-                
-});
- </script>
+ <script src="../assets/js/script_product.js"></script>
  <script src="../assets/js/table.js"></script>

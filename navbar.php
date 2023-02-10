@@ -19,7 +19,7 @@ if (!isset($_SESSION['id'])) {
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <title>Lou Geh SuperMarket</title>
+    <title>TITLE</title>
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 
@@ -37,19 +37,19 @@ if (!isset($_SESSION['id'])) {
                     <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Home</span>
                     </a>
 
-                    <a href="../sale/" class="list-group-item list-group-item-action py-2 ripple
-                    <?php if ($page == 'Sale Transaction') {echo 'active';} ?>"><i
-                        class="fas fa-lock fa-fw me-3"></i><span>Sale Transaction</span>
-                    </a>
-
-                    <a href="../delivery/" class="list-group-item list-group-item-action py-2 ripple
-                    <?php if ($page == 'Delivery Transaction') {echo 'active';} ?>"><i
-                        class="fas fa-lock fa-fw me-3"></i><span>Delivery Transaction</span>
-                    </a>
+                    <a href="../supplier/" class="list-group-item list-group-item-action py-2 ripple
+                    <?php if ($page == 'Supplier') {echo 'active';} ?>"><i
+                      class="fas fa-lock fa-fw me-3"></i><span>Supplier</span>
+                    </a>  
 
                     <a href="../product/" class="list-group-item list-group-item-action py-2 ripple
                     <?php if ($page == 'Item') {echo 'active';} ?>"><i
                         class="fas fa-lock fa-fw me-3"></i><span>Product</span>
+                    </a>
+
+                    <a href="../purchase/" class="list-group-item list-group-item-action py-2 ripple
+                    <?php if ($page == 'purchase Transaction') {echo 'active';} ?>"><i
+                        class="fas fa-lock fa-fw me-3"></i><span>Purchase</span>
                     </a>
 
                     <a href="../customer/" class="list-group-item list-group-item-action py-2 ripple
@@ -57,10 +57,10 @@ if (!isset($_SESSION['id'])) {
                       class="fas fa-lock fa-fw me-3"></i><span>Customer</span>
                     </a>
 
-                    <a href="../supplier/" class="list-group-item list-group-item-action py-2 ripple
-                    <?php if ($page == 'Supplier') {echo 'active';} ?>"><i
-                      class="fas fa-lock fa-fw me-3"></i><span>Supplier</span>
-                    </a>  
+                    <a href="../sale/" class="list-group-item list-group-item-action py-2 ripple
+                    <?php if ($page == 'Sale Transaction') {echo 'active';} ?>"><i
+                        class="fas fa-lock fa-fw me-3"></i><span>Sale</span>
+                    </a>
 
                     <a href="../user/" class="list-group-item list-group-item-action py-2 ripple 
                     <?php if ($page == 'User') {echo 'active';}  ?>" 
@@ -83,7 +83,7 @@ if (!isset($_SESSION['id'])) {
               <div class="container-fluid">
                 <!-- Brand -->
                 <a class="navbar-brand" href="#">
-                LOU GEH SUPERMARKET
+                TITLE
                 </a>
               </div>
               <!-- Container wrapper -->

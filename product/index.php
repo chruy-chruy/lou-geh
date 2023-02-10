@@ -82,7 +82,7 @@ if(isset($_GET['message'])){
 
     <div class="table_item" style=" position: relative;
   left: 250px;
-  width: 80%;
+  width: 85%;
   height: 90%;
   border: 3px;
   top:50px;
@@ -92,10 +92,12 @@ if(isset($_GET['message'])){
             <tr>
                 <th>Item Number</th>
                 <th>Name</th>
-                <th>Barcode</th>
+                <th>brand</th>
                 <th>Product Description</th>
                 <th>quantity</th>
                 <th>Cost per unit</th>
+                <th>Selling Price</th>
+                <th>Revenue</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -107,10 +109,12 @@ if(isset($_GET['message'])){
             <tr>
             <td><?php echo $row['item_number'] ?></td>
             <td><?php echo $row['name'] ?></td>
-            <td><?php echo $row['barcode'] ?></td>
+            <td><?php echo $row['brand'] ?></td>
             <td><?php echo $row['details'] ?></td>
             <td><?php echo $row['quantity'] ?></td>
             <td><?php echo $row['price'] ?></td>
+            <td><?php echo $row['selling_price'] ?></td>
+            <td><?php echo $row['revenue'] ?></td>
             <td><a href="edit-product.php?id=<?php echo $row['item_number'] ?>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
   <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
