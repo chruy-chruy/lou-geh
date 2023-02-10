@@ -59,8 +59,12 @@ include "../db_conn.php";
     <option value=<?php echo $row['item_number']?>><?php echo $row['name'] ?></option>
     <?php }?>
     </select>
-
   </div>
+
+  <input type="text"  class="form-control" id="item_name" name="item_name" hidden required>
+  <input type="text"  class="form-control" id="item_number" name="item_number" hidden required>
+  <input type="text"  class="form-control" id="sold_by" name="sold_by" value="<?php echo $_SESSION['username'] ?>" hidden required>
+
   <div class="col-md-6">
     <label for="" class="form-label">Quantity</label>
     <input type="number"  class="form-control" id="quantity" name="quantity" required>
@@ -71,8 +75,6 @@ include "../db_conn.php";
      <input type="number" step=0.01 class="form-control" id="price" name="price" hidden> 
     <label for=""  id="price2" class="form-control">0</label>
   </div>
-
-  
 
   <div class="col-md-6">
     <label for="" class="form-label">Total Price</label>

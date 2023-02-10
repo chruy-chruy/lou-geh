@@ -97,6 +97,7 @@ if(isset($_GET['message'])){
                 <th>Price per unit</th>
                 <th>Total Price</th>
                 <th>Date</th>
+                <th>Sold By</th>
             </tr>
         </thead>
         <tbody>
@@ -112,7 +113,7 @@ if(isset($_GET['message'])){
             <td><?php echo $row['price'] ?></td>
             <td><?php echo $row['total'] ?></td>
             <td><?php echo date("l, F j Y g:i A", strtotime($row["created_at"])); ?></td>
-            
+            <td><?php echo $row['sold_by'] ?></td>
             </tr> <?php }?>
             </tbody>
            

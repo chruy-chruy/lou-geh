@@ -1,5 +1,4 @@
-
-  $(document).ready(function () {
+$(document).ready(function () {
 
     $("#item").change( function()
     {
@@ -11,8 +10,12 @@
             success: function(result) { 
             value = result
             console.log(result);
-            document.getElementById("price2").innerHTML = result;
-            document.getElementById("price").value = result;
+            let res = result.split(",");
+            document.getElementById("price2").innerHTML = res[0];
+            document.getElementById("price").value = res[0];
+            document.getElementById("item_name").value = res[1];
+            document.getElementById("item_number").value = res[2];
+
             var quantity =  document.getElementById("quantity").value
             var price =  document.getElementById("price").value
             var total =  quantity * price;
