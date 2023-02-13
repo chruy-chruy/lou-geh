@@ -1,7 +1,126 @@
-
 body {
-    font-family: "Poppins", sans-serif;
-    height: 100%;
-    background: url("../assets/images/houndstooth.png");
-    background-repeat: repeat;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif !important;
+  display: flex;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  margin-left: 250px;
+  margin-top: 70px;
+  padding: 30px;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.button__primary {
+  background: #3eb489 !important;
+  color: #fefefe !important;
+}
+
+.login__form {
+  width: 350px;
+}
+.login__input {
+  padding: 9px 12px !important;
+}
+.login__button {
+  background: #3eb489 !important;
+  color: #fefefe !important;
+}
+
+.header {
+  position: fixed;
+  background: #fefefe;
+  top: 0;
+  right: 0;
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  padding: 0 30px;
+  height: 70px;
+  box-shadow: 0px 1px 20px rgba(153, 153, 153, 0.15);
+  z-index: 9998;
+}
+
+.nav {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  z-index: 9999;
+}
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  width: 100%;
+  height: 100%;
+  background: #3eb489;
+  box-shadow: 1px 0 20px rgba(153, 153, 153, 0.15);
+}
+.nav__logo {
+  font-weight: 600;
+  margin-bottom: 7px !important;
+  padding: 10px 12px;
+  color: #fefefe !important;
+}
+.nav__logo:hover {
+  background: transparent !important;
+}
+.nav__link {
+  width: 100%;
+  margin-bottom: 2px;
+  border-radius: 5px;
+}
+.nav__link:last-child {
+  margin-top: auto;
+}
+.nav__link:hover {
+  background: #3bac83;
+}
+.nav__link:hover span,
+.nav__link:hover i {
+  color: #fefefe;
+}
+.nav__link a {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+}
+.nav__link a i {
+  font-size: 22px;
+  margin-right: 8px;
+}
+.nav__link a span,
+.nav__link a i {
+  color: rgba(254, 254, 254, 0.87);
+}
+.nav__active {
+  background: #37a17b;
+}
+.nav__active:hover {
+  background: #37a17b !important;
+}
+.nav__active span,
+.nav__active i {
+  color: #fefefe !important;
+}
+
+.card-header, .card-footer {
+  background: white !important;
+}/*# sourceMappingURL=style.css.map */
