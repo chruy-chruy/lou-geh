@@ -47,7 +47,8 @@ if(isset($_GET['message'])){
       <label for="" class="form-label">Role</label>
       <select name="role" id="role" class="form-select" required> 
       <option value="" selected disabled hidden>--</option>
-    <option value="Staff" >Staff</option>
+    <option value="Inventory Staff" >Inventory Staff</option>
+    <option value="Sales Staff" >Sales Staff</option>
     <option value="Admin">Admin</option>
   </select>
     </div>

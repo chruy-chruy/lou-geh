@@ -1,9 +1,9 @@
-<?php 
+<?php
 $page = 'purchase Transaction';
-include "../db_conn.php";
- ?>
+include '../db_conn.php';
+?>
 
-<?php include "../includes/head.php";?> 
+<?php include '../includes/head.php'; ?> 
 
 <main>
   
@@ -17,11 +17,16 @@ include "../db_conn.php";
     <select name="supplier" id="supplier" class="form-select" required>
     <option disabled hidden value="" selected>--</option>
     <?php
-                    $squery =  mysqli_query($conn, "select * from supplier where del_status != 'deleted'");
-                    while ($row = mysqli_fetch_array($squery)) {
+    $squery = mysqli_query(
+        $conn,
+        "select * from supplier where del_status != 'deleted'"
+    );
+    while ($row = mysqli_fetch_array($squery)) { ?>
+    <option value=<?php echo $row['supplier_code']; ?>><?php echo $row[
+    'company_name'
+]; ?></option>
+        <?php }
     ?>
-    <option value=<?php echo $row['supplier_code'] ?>><?php echo $row['company_name'] ?></option>
-        <?php }?>
     </select>
   </div>
 
@@ -33,11 +38,16 @@ include "../db_conn.php";
     <select name="item" id="item" class="form-select" required>
     <option disabled hidden value="" selected>--</option>
     <?php
-                    $squery =  mysqli_query($conn, "select * from items where del_status != 'deleted'");
-                    while ($row = mysqli_fetch_array($squery)) {
+    $squery = mysqli_query(
+        $conn,
+        "select * from items where del_status != 'deleted'"
+    );
+    while ($row = mysqli_fetch_array($squery)) { ?>
+    <option value=<?php echo $row['name'] .
+        ',' .
+        $row['barcode']; ?>><?php echo $row['name']; ?></option>
+        <?php }
     ?>
-    <option value=<?php echo $row['name'].",". $row['barcode']?>><?php echo $row['name'] ?></option>
-        <?php }?>
     </select>
   </div>
 

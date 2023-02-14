@@ -4,9 +4,8 @@ include "../db_conn.php";
 $name = ucwords($_POST['name']);
 $user_name = ($_POST['user_name']);
 $password = ($_POST['password']);
-$role = ucwords($_POST['role']);
+$role = $_POST['role'];
 $id = $_GET['id'];
-
 
 $sql = "UPDATE `user` SET 
 `fullName`='$name',

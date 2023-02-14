@@ -1,9 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['id'])) {
-    header("Location: ../index.php");
-    exit();
-} ?>
 
             <!-- Sidebar -->
             <nav class="nav bg-white">
@@ -12,7 +6,6 @@ if (!isset($_SESSION['id'])) {
                   <!-- <i class='bx bxs-shopping-bags'></i> -->
                     Lou Geh Supermarket
                   </li>
-
 
                   <li class="nav__link <?php if ($page == 'Dashboard') {echo 'nav__active';} ?>">
                   <a href="../dashboard/">
@@ -57,8 +50,7 @@ if (!isset($_SESSION['id'])) {
                     </li>
 
                     <li class="nav__link <?php if ($page == 'User') {echo 'nav__active';}  ?>">
-                    <a href="../users/" 
-                    <?php if ($_SESSION['role'] != 'Admin') {echo 'hidden';}  ?>>
+                    <a href="../users/">
                     <i class='bx bxs-user-account'></i>
                     <span>Users</span>
                     </a> 

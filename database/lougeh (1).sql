@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2023 at 10:43 AM
+-- Generation Time: Feb 14, 2023 at 08:52 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -61,6 +61,7 @@ CREATE TABLE `items` (
   `brand` varchar(225) NOT NULL,
   `selling_price` double NOT NULL,
   `revenue` double NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `del_status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -68,9 +69,9 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`item_number`, `name`, `barcode`, `details`, `quantity`, `price`, `brand`, `selling_price`, `revenue`, `del_status`) VALUES
-(0015, 'TUF Gaming VG258QM', '', '24.5-inch Full HD (1920 X 1080) Gaming Monitor With Ultrafast 280*Hz Refresh Rate Designed For Professional Gamers And Immersive Gameplay\r\nEnables A 0.5ms Response Time (GTG) For Sharp Gaming Visuals With High Frame Rates\r\nG-SYNC Compatible Ready, Deliver', '12', 10000, 'Asus', 11000, 12000, ''),
-(0016, 'Asus Tuf Mouse', '', 'Test Mouse', '100', 850, 'Asus', 1000, 15000, '');
+INSERT INTO `items` (`item_number`, `name`, `barcode`, `details`, `quantity`, `price`, `brand`, `selling_price`, `revenue`, `created_at`, `del_status`) VALUES
+(0015, 'TUF Gaming VG258QM', '', '24.5-inch Full HD (1920 X 1080) Gaming Monitor With Ultrafast 280*Hz Refresh Rate Designed For Professional Gamers And Immersive Gameplay\r\nEnables A 0.5ms Response Time (GTG) For Sharp Gaming Visuals With High Frame Rates\r\nG-SYNC Compatible Ready, Deliver', '12', 10000, 'Asus', 11000, 12000, '2023-02-13 09:26:57', ''),
+(0016, 'Asus Tuf Mouse', '', 'Test Mouse', '100', 850, 'Asus', 1000, 15000, '2023-02-13 09:26:57', '');
 
 -- --------------------------------------------------------
 
@@ -88,6 +89,8 @@ CREATE TABLE `purchase_transaction` (
   `price` double NOT NULL,
   `total_cost` double NOT NULL,
   `date` date DEFAULT NULL,
+  `date_delivered` date NOT NULL,
+  `status` varchar(55) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `del_status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -96,9 +99,11 @@ CREATE TABLE `purchase_transaction` (
 -- Dumping data for table `purchase_transaction`
 --
 
-INSERT INTO `purchase_transaction` (`transaction_no`, `supplier_code`, `item_name`, `brand`, `details`, `quantity`, `price`, `total_cost`, `date`, `created_at`, `del_status`) VALUES
-(0016, '0003', '', 'Asus', 'Deliever Asap', 100, 850, 85000, '2023-02-11', '2023-02-10 15:16:07', 'deleted'),
-(0017, '0003', 'Asus Mouse', 'Asus', 'Deliever Asap', 100, 850, 85000, '2023-02-11', '2023-02-10 15:16:37', '');
+INSERT INTO `purchase_transaction` (`transaction_no`, `supplier_code`, `item_name`, `brand`, `details`, `quantity`, `price`, `total_cost`, `date`, `date_delivered`, `status`, `created_at`, `del_status`) VALUES
+(0016, '0003', '', 'Asus', 'Deliever Asap', 100, 850, 85000, '2023-02-11', '2023-02-14', '', '2023-02-10 15:16:07', 'deleted'),
+(0017, '0003', 'Asus Mouse', 'Asus', 'Deliever Asap', 100, 850, 85000, '2023-02-11', '2023-02-14', 'delivered', '2023-02-10 15:16:37', ''),
+(0019, '0003', 'Asus Tuf Mouse', 'Asus', 'Sad', 20, 750, 15000, '2023-02-15', '2023-02-14', 'delivered', '2023-02-14 10:32:10', ''),
+(0020, '0003', 'Test', 'Test', 'Wqeqe', 2, 3, 6, '2023-02-14', '0000-00-00', 'pending', '2023-02-14 14:34:13', '');
 
 -- --------------------------------------------------------
 
@@ -122,7 +127,6 @@ CREATE TABLE `sale_transaction` (
 --
 
 INSERT INTO `sale_transaction` (`transaction_no`, `customer_name`, `item_name`, `quantity`, `price`, `total`, `created_at`, `sold_by`) VALUES
-(0005, 'Customer', 'TUF Gaming VG258QM', 2, 11000, 22000, '2023-02-10 17:25:14', ''),
 (0006, 'Customer', 'Asus Tuf Mouse', 2, 1000, 2000, '2023-02-10 17:29:53', 'Admin'),
 (0007, 'Customer 3', 'Asus Tuf Mouse', 2, 1000, 2000, '2023-02-10 17:40:03', 'Admin');
 
@@ -170,7 +174,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `fullName`, `role`, `del_status`) VALUES
 (1, 'admin', 'admin', 'SuperAdmin', 'Admin', ''),
-(3, 'Troy1234', '1234', 'Troy Michael Garidos', 'Staff', '');
+(3, 'Troy1234', '1234', 'Troy Michael Garidos', 'Sales Staff', ''),
+(6, 'inventory', '123', 'Test', 'Inventory Staff', '');
 
 --
 -- Indexes for dumped tables
@@ -232,7 +237,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `purchase_transaction`
 --
 ALTER TABLE `purchase_transaction`
-  MODIFY `transaction_no` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `transaction_no` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `sale_transaction`
@@ -250,7 +255,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -12,20 +12,19 @@ include "../db_conn.php";
     
   <label class="form-label">Transaction Number : <?php echo $_GET['id'];?></label>
   <form class="row g-3" action="update.php?id=<?php echo $_GET['id'];?>" method="post">
-  <div class="col-md-6">
+ 
   <?php $id = $_GET['id'];
-  $squery =  mysqli_query($conn, "SELECT * from purchase_transaction Where transaction_no = $id");
+  $squery =  mysqli_query($conn, "SELECT p.*,s.name from purchase_transaction p JOIN supplier s   Where transaction_no = $id");
         while ($row = mysqli_fetch_array($squery)) {
-            $code =$row['supplier_code'];
-            $squery2 =  mysqli_query($conn, "SELECT * from supplier Where supplier_code = '$code'");
-            while ($row2 = mysqli_fetch_array($squery2)) {
           ?>  
+        
+  <div class="col-md-6">
   <label class="form-label">Supplier</label>
     <select name="supplier" id="supplier" class="form-select" required>
-    <option selected value=<?php echo $row2['supplier_code'] ?>><?php echo $row2['name']?></option>
-
+    <option selected value=<?php echo $row['supplier_code'] ?>><?php echo $row['name']?></option>
     </select>
   </div>
+ 
 
   <div class="col-md-6">
   <label class="form-label">Date</label>
@@ -56,6 +55,16 @@ include "../db_conn.php";
     <label for="" class="form-label">Total Cost</label>
     <input type="number" step=0.01 class="form-control" id="total" name="total" value="<?php echo $row['total_cost'] ?>" hidden required>
     <label class="form-control" id="total2"><?php echo $row['total_cost'] ?></label>
+  </div>
+
+  <div class="col-md-1">
+  <label class="form-label">Status</label>
+    <select name="status" id="status" class="form-select" required>
+    <option selected hidden value=<?php echo $row['status'] ?>><?php echo $row['status']?></option>
+    <option   value='pending'>pending</option>
+    <option   value='delivered'>delivered</option> 
+    <option   value='cancel'>cancel</option>
+    </select>
   </div>
 
   <div class="col-md-12">
@@ -102,6 +111,6 @@ include "../db_conn.php";
     </main>
  </body>
  </html>
- <?php }}?>
+ <?php }?>
  <script src="../assets/js/table.js"></script>
  <script src="../assets/js/script_purchase.js"></script>

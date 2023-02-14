@@ -28,6 +28,25 @@
  </head>
  
  <body>
-<?php include "navbar.php";?> 
-<?php include "header.php";?> 
+<!-- view user privacy -->
+<?php
+session_start();
+if (isset($_SESSION['id'])) {
+    if ($_SESSION['role'] == 'Admin') {
+        include 'admin_navbar.php';
+    } elseif ($_SESSION['role'] == 'Inventory Staff') {
+        include 'inventory_staff_navbar.php';
+    } elseif ($_SESSION['role'] == 'Sales Staff') {
+        include 'sales_staff_navbar.php';
+    } else {
+        echo 'invalid role';
+    }
+} elseif (!isset($_SESSION['id'])) {
+    header('Location: ../index.php');
+    exit();
+} else {
+    echo 'Session Error';
+}
+?>
+<?php include 'header.php'; ?> 
 

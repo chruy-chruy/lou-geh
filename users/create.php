@@ -2,8 +2,9 @@
 
 include "../db_conn.php";
 $name = ucwords($_POST['name']);
-$user_name = ($_POST['user_name']);
-$password = ($_POST['password']);
+$user_name = $_POST['user_name'];
+$password = $_POST['password'];
+$role = $_POST['role'];
 
 //check if username is already exist
 $squery =  mysqli_query($conn, "SELECT * from user Where username = '$user_name' AND del_status != 'deleted'");

@@ -1,9 +1,9 @@
-<?php 
+<?php
 $page = 'purchase Transaction';
-include "../db_conn.php";
- ?>
+include '../db_conn.php';
+?>
 
-<?php include "../includes/head.php";?> 
+<?php include '../includes/head.php'; ?> 
 
 <main>
   <div class="card">
@@ -16,16 +16,18 @@ include "../db_conn.php";
     <select name="supplier" id="supplier" class="form-select" required>
     <option disabled hidden value="" selected>--</option>
     <?php
-                    $squery =  mysqli_query($conn, "select * from supplier");
-                    while ($row = mysqli_fetch_array($squery)) {
+    $squery = mysqli_query($conn, 'select * from supplier');
+    while ($row = mysqli_fetch_array($squery)) { ?>
+    <option value=<?php echo $row['supplier_code']; ?>><?php echo $row[
+    'company_name'
+]; ?></option>
+        <?php }
     ?>
-    <option value=<?php echo $row['supplier_code'] ?>><?php echo $row['company_name'] ?></option>
-        <?php }?>
     </select>
   </div>
 
   <div class="col-md-6">
-  <label class="form-label">Date</label>
+  <label class="form-label">Delivery Date</label>
   <input type="date" class="form-control" id="date" name="date" required>
   </div>
 

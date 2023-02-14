@@ -10,7 +10,13 @@ $brand = ucwords($_POST['brand']);
 $total = ucwords($_POST['total']);
 $date = ucwords($_POST['date']);
 $id = $_GET['id'];
+$status =$_POST['status'];
 
+if($status == 'delivered'){
+    $date_delivered = date("Y-m-d");
+}else{
+    $date_delivered = '';
+}
 //update to purchase transaction
 $sql = "UPDATE `purchase_transaction` SET 
 `supplier_code`='$supplier',
@@ -20,7 +26,9 @@ $sql = "UPDATE `purchase_transaction` SET
 `price`='$price',
 `date`='$date',
 `brand`='$brand',
-`total_cost`='$total'
+`total_cost`='$total',
+`status`='$status',
+`date_delivered`='$date_delivered'
 Where transaction_no = $id";
 mysqli_query($conn, $sql);
 

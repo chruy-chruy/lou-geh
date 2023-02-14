@@ -28,33 +28,36 @@ if(isset($_GET['message'])){
                 <th>quantity</th>
                 <th>Cost per unit</th>
                 <th>Total Cost</th>
+                <th>Schedule Date</th>
+                <th>Date Delivered</th>
+                <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
         
         <tbody>
-        <?php $squery =  mysqli_query($conn, "SELECT * from purchase_transaction Where del_status != 'deleted'");
+        <?php $squery =  mysqli_query($conn, "SELECT p.*,s.company_name from purchase_transaction p JOIN supplier s Where p.del_status != 'deleted'");
         while ($row = mysqli_fetch_array($squery)) {
-            $code =$row['supplier_code'];
-            $squery2 =  mysqli_query($conn, "SELECT * from supplier Where supplier_code = '$code'");
-            while ($row2 = mysqli_fetch_array($squery2)) {
           ?>
  
             <tr>
             <td><?php echo $row['transaction_no'] ?></td>
-            <td><?php echo $row2['company_name'] ?></td>
+            <td><?php echo $row['company_name'] ?></td>
             <td><?php echo $row['item_name'] ?></td>
             <td><?php echo $row['details'] ?></td>
             <td><?php echo $row['quantity'] ?></td>
             <td><?php echo $row['price'] ?></td>
             <td><?php echo $row['total_cost'] ?></td>
+            <td><?php echo $row['date'] ?></td>
+            <td><?php echo $row['date_delivered'] ?></td>
+            <td><?php echo $row['status'] ?></td>
             <td>
               <a href="edit-transaction.php?id=<?php echo $row['transaction_no'] ?>">
               <div class="btn btn-secondary btn-sm">View</div>
               </a>
         </td>
             </tr>
-            <?php } }?>
+            <?php }?>
             </tbody>
          
     </table>
