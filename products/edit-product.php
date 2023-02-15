@@ -6,13 +6,14 @@ include "../db_conn.php";
 <?php include "../includes/head.php";?> 
 
     <main>
+<a class="btn btn-secondary btn-sm mb-3" href="index.php">Back</a>
+
       <div class="card">
         <div class="card-body">
-          
-         <a class="btn btn-secondary btn-sm" href="index.php">Back</a>
+        
    
-   <label class="form-label">Product Number : <?php echo $_GET['id'];?></label>
-   <form class="row g-3" action="update.php?id=<?php echo $_GET['id'];?>" method="post">
+   <label class="form-label fw-bold mb-3">Product Number : <?php echo $_GET['id'];?></label>
+   <form class="row" action="update.php?id=<?php echo $_GET['id'];?>" method="post">
    <div class="col-md-6">
    <?php $id = $_GET['id'];
    $squery =  mysqli_query($conn, "SELECT * from items Where item_number = $id");
@@ -65,13 +66,11 @@ include "../db_conn.php";
    </div>
  
 
-   <div class="card-footer py-3">
-   <div class="col-6">
-     <button type="submit" class="btn btn-primary">Submit</button>
+   <div class="card-footer py-3 d-flex justify-content-end">
+     <button type="submit" class="btn btn-primary me-2">Update</button>
      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
    Delete
- </button>
-   </div>   
+ </button>  
   
  </form>
    </div>
@@ -86,14 +85,11 @@ include "../db_conn.php";
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
        <div class="modal-body">
-       Are you sure you want to delete 
-       Item Number : <?php echo $row['item_number'] ?>?
-       <br>
-       Item Name : <?php echo $row['name'] ?>
+       Are you sure you want to delete <b><?php echo $row['name'] ?> </b>?
        </div>
        <div class="modal-footer">
        <a href="delete.php?id=<?php echo $row['item_number'] ?>"><button type="button" class="btn btn-danger">Delete</button></a>
-         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
        </div>
      </div>
    </div>

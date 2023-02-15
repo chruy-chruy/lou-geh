@@ -6,12 +6,11 @@ include "../db_conn.php";
 <?php include "../includes/head.php";?> 
  
     <main>
+<a class="btn btn-secondary btn-sm mb-3" href="index.php">Back</a>
+
       <div class="card">
         <div class="card-body">
           
-         <a class="btn btn-secondary btn-sm" href="index.php">Back</a>
-
-  
 <form class="row g-3" action="update.php?id=<?php echo $_GET['id']?>" method="post">
 <?php $id = $_GET['id'];
 $squery =  mysqli_query($conn, "SELECT * from user Where id = '$id'");
@@ -30,7 +29,7 @@ $squery =  mysqli_query($conn, "SELECT * from user Where id = '$id'");
 </div>
 
 <div class="col-md-6">
-  <label for="" class="form-label">password</label>
+  <label for="" class="form-label">Password</label>
   <input class="form-control" id="text" name="password" value="<?php echo $row['password'] ?>" required>
 </div>
 
@@ -60,20 +59,18 @@ $squery =  mysqli_query($conn, "SELECT * from user Where id = '$id'");
     </div>
     <div class="modal-footer">
     <a href="delete.php?id=<?php echo $row['id'] ?>"><button type="button" class="btn btn-danger">Delete</button></a>
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
     </div>
   </div>
 </div>
 </div>
         </div>
  
-        <div class="card-footer py-3">
-        <div class="col-12">
-  <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="card-footer py-3 d-flex justify-content-end">
+  <button type="submit" class="btn btn-primary me-2">Update</button>
   <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 Delete
 </button>
-</div>
 
 </form>
         </div>

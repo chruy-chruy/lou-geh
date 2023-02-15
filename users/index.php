@@ -20,12 +20,11 @@ if(isset($_GET['message'])){
     </div>
    
 <div class="card-body">
-<table id="table" class="table table-responsive">
+<table id="table" class="table table-responsive" style="width:100%">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>User Name</th>
-                <th>User Password</th>
+                <th>Username</th>
                 <th>Full Name</th>
                 <th>Role</th>
                 <th>Action</th>
@@ -39,7 +38,6 @@ if(isset($_GET['message'])){
             <tr>
             <td><?php echo $row['id'] ?></td>
             <td><?php echo $row['username'] ?></td>
-            <td><?php echo $row['password'] ?></td>
             <td><?php echo $row['fullName'] ?></td>
             <td><?php echo $row['role'] ?></td>
             <td>

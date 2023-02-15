@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: "Poppins", sans-serif !important;
   display: flex;
+  overflow-x: hidden;
 }
 
 body,
@@ -19,6 +20,7 @@ main {
   margin-top: 70px;
   padding: 30px;
   width: 100%;
+  overflow-x: auto;
 }
 
 ul {
@@ -35,7 +37,11 @@ a {
 }
 
 .login__form {
-  width: 350px;
+  border: solid 1px #dbdbdb;
+  padding: 35px 40px;
+  border-radius: 15px;
+  background: #fdfdfd;
+  width: 450px;
 }
 .login__input {
   padding: 9px 12px !important;
@@ -51,18 +57,17 @@ a {
   top: 0;
   right: 0;
   width: calc(100% - 250px);
-  margin-left: 250px;
   padding: 0 30px;
   height: 70px;
   box-shadow: 0px 1px 20px rgba(153, 153, 153, 0.15);
-  z-index: 9998;
+  z-index: 1;
 }
 
 .nav {
   width: 250px;
   height: 100%;
   position: fixed;
-  z-index: 9999;
+  z-index: 2;
 }
 .nav__list {
   display: flex;
@@ -74,9 +79,11 @@ a {
   box-shadow: 1px 0 20px rgba(153, 153, 153, 0.15);
 }
 .nav__logo {
-  font-weight: 600;
   margin-bottom: 7px !important;
   padding: 10px 12px;
+}
+.nav__logo span {
+  font-weight: 600;
   color: #fefefe !important;
 }
 .nav__logo:hover {
@@ -84,7 +91,7 @@ a {
 }
 .nav__link {
   width: 100%;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
   border-radius: 5px;
 }
 .nav__link:last-child {
@@ -123,4 +130,8 @@ a {
 
 .card-header, .card-footer {
   background: white !important;
+}
+
+.dropdown-item:active {
+  background: #e9ecef !important;
 }/*# sourceMappingURL=style.css.map */

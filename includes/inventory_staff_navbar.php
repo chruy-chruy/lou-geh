@@ -4,8 +4,7 @@
             <nav class="nav bg-white">
               <ul class="nav__list">
                   <li class="nav__link nav__logo">
-                  <!-- <i class='bx bxs-shopping-bags'></i> -->
-                    Lou Geh Supermarket
+                    <span>Lou Geh Supermarket</span>
                   </li>
 
 
@@ -18,25 +17,7 @@
                     </a>
                   </li>
 
-                    <li class="nav__link <?php if ($page == 'Supplier') {
-                        echo 'nav__active';
-                    } ?>">
-                    <a href="../suppliers/">
-                    <i class='bx bxs-group'></i>
-                    <span>Suppliers</span>
-                    </a>  
-                    </li>
-
-                    <li class="nav__link <?php if ($page == 'Item') {
-                        echo 'nav__active';
-                    } ?>">
-                    <a href="../products/">
-                    <i class='bx bxs-package'></i>
-                    <span>Products</span>
-                    </a>
-                    </li>
-
-                   <li class="nav__link <?php if (
+                  <li class="nav__link <?php if (
                        $page == 'purchase Transaction'
                    ) {
                        echo 'nav__active';
@@ -46,6 +27,26 @@
                     <span>Purchase</span>
                     </a>
                    </li>
+
+                  <li class="nav__link <?php if ($page == 'Item') {
+                        echo 'nav__active';
+                    } ?>">
+                    <a href="../products/">
+                    <i class='bx bxs-package'></i>
+                    <span>Products</span>
+                    </a>
+                    </li>
+
+                    <li class="nav__link <?php if ($page == 'Supplier') {
+                        echo 'nav__active';
+                    } ?>">
+                    <a href="../suppliers/">
+                    <i class='bx bxs-group'></i>
+                    <span>Suppliers</span>
+                    </a>  
+                    </li>
+
+
                     
                    <li class="nav__link">
                    <a href="../log-out.php" class="">

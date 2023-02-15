@@ -6,15 +6,16 @@ include '../db_conn.php';
 <?php include '../includes/head.php'; ?> 
 
 <main>
+<a class="btn btn-secondary btn-sm mb-3" href="index.php">Back</a>
+
   <div class="card">
     <div class="card-body">
       
-    <a class="btn btn-secondary btn-sm" href="index.php">Back</a>
   <form class="row g-3" action="create.php" method="post">
   <div class="col-md-6">
   <label for="inputAddress" class="form-label">Supplier</label>
     <select name="supplier" id="supplier" class="form-select" required>
-    <option disabled hidden value="" selected>--</option>
+    <option disabled hidden value="" selected>Select</option>
     <?php
     $squery = mysqli_query($conn, 'select * from supplier');
     while ($row = mysqli_fetch_array($squery)) { ?>
@@ -65,8 +66,8 @@ include '../db_conn.php';
    
     </div>
 
-    <div class="card-footer py-3">
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="card-footer py-3 d-flex justify-content-end">
+    <button type="submit" class="btn btn-primary">Purchase</button>
 
 </form>
     </div>

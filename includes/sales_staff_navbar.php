@@ -4,8 +4,7 @@
             <nav class="nav bg-white">
               <ul class="nav__list">
                   <li class="nav__link nav__logo">
-                  <!-- <i class='bx bxs-shopping-bags'></i> -->
-                    Lou Geh Supermarket
+                    <span>Lou Geh Supermarket</span>                  
                   </li>
 
                   <li class="nav__link <?php if ($page == 'Dashboard') {
@@ -17,16 +16,7 @@
                     </a>
                   </li>
 
-                    <li class="nav__link <?php if ($page == 'Customer') {
-                        echo 'nav__active';
-                    } ?>">
-                    <a href="../customers/">
-                    <i class='bx bx-id-card'></i>
-                    <span>Customers</span>
-                    </a>
-                    </li>
-
-                    <li class="nav__link <?php if (
+                  <li class="nav__link <?php if (
                         $page == 'Sale Transaction'
                     ) {
                         echo 'nav__active';
@@ -35,7 +25,17 @@
                     <i class='bx bxs-store'></i>
                     <span>Sale</span>
                     </a>
-                    </li> 
+                    </li>
+
+                    <li class="nav__link <?php if ($page == 'Customer') {
+                        echo 'nav__active';
+                    } ?>">
+                    <a href="../customers/">
+                    <i class='bx bx-id-card'></i>
+                    <span>Customers</span>
+                    </a>
+                    </li>
+ 
                     
                    <li class="nav__link">
                    <a href="../log-out.php" class="">

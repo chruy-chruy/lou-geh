@@ -7,14 +7,15 @@ include "../db_conn.php";
 
 
     <main>
-    <div>
-         <a href="index.php"><button>back</button></a>
-    </div>
+<a class="btn btn-secondary btn-sm mb-3" href="index.php">Back</a>
+<div class="card">
+  <div class="card-body">
+    
   <form class="row g-3" action="create.php" method="post">
   <div class="col-md-6">
   <label for="inputAddress" class="form-label">Customer</label>
     <select name="customer" id="customer" class="form-select" required>
-    <option disabled hidden value="" selected>--</option>
+    <option disabled hidden value="" selected>Select</option>
     <?php
                     $squery =  mysqli_query($conn, "SELECT * from customer Where del_status != 'deleted'");
                     while ($row = mysqli_fetch_array($squery)) {
@@ -27,7 +28,7 @@ include "../db_conn.php";
   <div class="col-md-6">
   <label for="inputAddress" class="form-label">Product Name</label>
     <select name="item" id="item" class="form-select" required>
-    <option disabled hidden value="" selected>--</option>
+    <option disabled hidden value="" selected>Select</option>
     <?php
                     $squery =  mysqli_query($conn, "SELECT * from items Where del_status != 'deleted'");
                     while ($row = mysqli_fetch_array($squery)) {
@@ -58,13 +59,20 @@ include "../db_conn.php";
     <label for=""  id="total" class="form-control">0</label>
   </div>
 
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Submit</button>
   </div>
-
+  <div class="card-footer py-3 d-flex justify-content-between">
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+  </div>
+</div>
     </main>
+<script>
+  $(document).ready(function(){
+    $('item').select2();
+  });
+</script>
+    <script src="../assets/js/table.js"></script>
+ <script src="../assets/js/script_sales.js"></script>
  </body>
  </html>
- <script src="../assets/js/table.js"></script>
- <script src="../assets/js/script_sales.js"></script>
+ 

@@ -11,22 +11,32 @@ if(isset($_GET['message'])){
 <?php include "../includes/head.php";?> 
 
 <main>
+  <div class="card">
+  <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <h5 class="m-0">Sale</h5>
   
 <div class="dropdown">
-  <button class="dropbtn">Add Transaction</button>
-  <div class="dropdown-content">
-  <a href="add-sale-old.php">Old Customer</a>
-  <a href="add-sale-new.php">New Customer</a>
-  </div>
+  <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    New Transaction
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="add-sale-old.php">Old Customer</a></li>
+    <li><a class="dropdown-item" href="add-sale-new.php">New Customer</a></li>
+  </ul>
 </div>
- <table id="table" class="table table-striped" style="width:100%; border: 3px;">
+    </div>
+    <div class="card-body">
+      
+
+ <table id="table" class="table table-responsive" >
         <thead>
             <tr>
-                <th>Transaction No</th>
+                <th>Transaction No.</th>
                 <th>Customer Name</th>
                 <th>Item</th>
                 <th>Quantity</th>
-                <th>Price per unit</th>
+                <th>Price Per Unit</th>
                 <th>Total Price</th>
                 <th>Date</th>
                 <th>Sold By</th>
@@ -50,6 +60,8 @@ if(isset($_GET['message'])){
             </tbody>
            
     </table>
+    </div>
+  </div>
 </main>
  </body>
  </div>

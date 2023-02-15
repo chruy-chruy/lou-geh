@@ -12,10 +12,10 @@ if(isset($_GET['message'])){
  <?php include "../includes/head.php";?> 
 
     <main>
+    <a class="btn btn-secondary btn-sm mb-3" href="index.php">Back</a>
+
       <div class="card">
         <div class="card-body">
-          
-         <a class="btn btn-secondary btn-sm" href="index.php">Back</a>
     
     <form class="row g-3" action="create.php" method="post">
   
@@ -46,7 +46,7 @@ if(isset($_GET['message'])){
     <div class="col-md-6">
       <label for="" class="form-label">Role</label>
       <select name="role" id="role" class="form-select" required> 
-      <option value="" selected disabled hidden>--</option>
+      <option value="" selected disabled hidden>Select</option>
     <option value="Inventory Staff" >Inventory Staff</option>
     <option value="Sales Staff" >Sales Staff</option>
     <option value="Admin">Admin</option>
@@ -56,9 +56,8 @@ if(isset($_GET['message'])){
      
         </div>
 
-        <div class="card-footer py-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
-  
+        <div class="card-footer py-3 d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary">Add</button>
   </form>
         </div>
       </div>

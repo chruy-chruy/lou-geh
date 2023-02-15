@@ -6,10 +6,11 @@ include "../db_conn.php";
 <?php include "../includes/head.php";?> 
 
    <main>
+<a class="btn btn-secondary btn-sm mb-3" href="index.php">Back</a>
+
     <div class="card">
     <div class="card-body">
       
-    <a class="btn btn-secondary btn-sm" href="index.php">Back</a>
   <form class="row g-3" action="update.php?id=<?php echo $_GET['id']?>" method="post">
   <?php $id = $_GET['id'];
   $squery =  mysqli_query($conn, "SELECT * from customer Where customer_number = '$id'");
@@ -32,7 +33,21 @@ include "../db_conn.php";
   </div>
 
   
-<!-- Modal -->
+
+    </div>
+
+    <div class="card-footer py-3 d-flex justify-content-end">
+    <button type="submit" class="btn btn-primary me-2">Update</button>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Delete
+</button>
+</form>
+
+    </div>
+   </div>
+   </main>
+
+   <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -45,25 +60,11 @@ include "../db_conn.php";
       </div>
       <div class="modal-footer">
       <a href="delete.php?id=<?php echo $row['customer_number'] ?>"><button type="button" class="btn btn-danger">Delete</button></a>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
 </div>
-    </div>
-
-    <div class="card-footer py-3">
-    <div class="col-12">
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Delete
-</button>
-  </div>
-</form>
-
-    </div>
-   </div>
-   </main>
  </body>
  </html>
  <?php }?>

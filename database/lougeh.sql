@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2023 at 08:52 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Generation Time: Feb 15, 2023 at 08:59 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `customer` (
   `address` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `del_status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer`
@@ -63,7 +63,7 @@ CREATE TABLE `items` (
   `revenue` double NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `del_status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `items`
@@ -89,11 +89,11 @@ CREATE TABLE `purchase_transaction` (
   `price` double NOT NULL,
   `total_cost` double NOT NULL,
   `date` date DEFAULT NULL,
-  `date_delivered` date NOT NULL,
+  `date_delivered` varchar(15) NOT NULL,
   `status` varchar(55) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `del_status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `purchase_transaction`
@@ -101,9 +101,9 @@ CREATE TABLE `purchase_transaction` (
 
 INSERT INTO `purchase_transaction` (`transaction_no`, `supplier_code`, `item_name`, `brand`, `details`, `quantity`, `price`, `total_cost`, `date`, `date_delivered`, `status`, `created_at`, `del_status`) VALUES
 (0016, '0003', '', 'Asus', 'Deliever Asap', 100, 850, 85000, '2023-02-11', '2023-02-14', '', '2023-02-10 15:16:07', 'deleted'),
-(0017, '0003', 'Asus Mouse', 'Asus', 'Deliever Asap', 100, 850, 85000, '2023-02-11', '2023-02-14', 'delivered', '2023-02-10 15:16:37', ''),
-(0019, '0003', 'Asus Tuf Mouse', 'Asus', 'Sad', 20, 750, 15000, '2023-02-15', '2023-02-14', 'delivered', '2023-02-14 10:32:10', ''),
-(0020, '0003', 'Test', 'Test', 'Wqeqe', 2, 3, 6, '2023-02-14', '0000-00-00', 'pending', '2023-02-14 14:34:13', '');
+(0017, '0003', 'Asus Mouse', 'Asus', 'Deliever Asap', 100, 850, 85000, '2023-02-11', '', 'Cancelled', '2023-02-10 15:16:37', ''),
+(0019, '0003', 'Asus Tuf Mouse', 'Asus', 'Sad', 20, 750, 15000, '2023-02-15', '', 'Pending', '2023-02-14 10:32:10', ''),
+(0020, '0003', 'Test', 'Test', 'Wqeqe', 2, 3, 6, '2023-02-14', '2023-02-15', 'Received', '2023-02-14 14:34:13', '');
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,7 @@ CREATE TABLE `sale_transaction` (
   `total` double NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `sold_by` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sale_transaction`
@@ -144,7 +144,7 @@ CREATE TABLE `supplier` (
   `address` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `del_status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `supplier`
@@ -166,7 +166,7 @@ CREATE TABLE `user` (
   `fullName` varchar(225) NOT NULL,
   `role` varchar(55) NOT NULL,
   `del_status` varchar(55) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`

@@ -6,11 +6,12 @@ include "../db_conn.php";
 <?php include "../includes/head.php";?> 
 
     <main>
+<a class="btn btn-secondary btn-sm mb-3" href="index.php">Back</a>
+
     <div class="card">
       <div class="card-body">
-         <a class="btn btn-secondary btn-sm" href="index.php">Back</a>
     
-  <label class="form-label">Transaction Number : <?php echo $_GET['id'];?></label>
+  <label class="form-label fw-bold mb-3">Transaction Number : <?php echo $_GET['id'];?></label>
   <form class="row g-3" action="update.php?id=<?php echo $_GET['id'];?>" method="post">
  
   <?php $id = $_GET['id'];
@@ -57,13 +58,13 @@ include "../db_conn.php";
     <label class="form-control" id="total2"><?php echo $row['total_cost'] ?></label>
   </div>
 
-  <div class="col-md-1">
+  <div class="col-md-6">
   <label class="form-label">Status</label>
     <select name="status" id="status" class="form-select" required>
     <option selected hidden value=<?php echo $row['status'] ?>><?php echo $row['status']?></option>
-    <option   value='pending'>pending</option>
-    <option   value='delivered'>delivered</option> 
-    <option   value='cancel'>cancel</option>
+    <option value='Pending'>Pending</option>
+    <option value='Received'>Received</option> 
+    <option value='Cancelled'>Cancelled</option>
     </select>
   </div>
 
@@ -75,13 +76,11 @@ include "../db_conn.php";
   
   </div>
 
-  <div class="card-footer py-3">
-  <div class="col-6">
-    <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="card-footer py-3 d-flex justify-content-end">
+    <button type="submit" class="btn btn-primary me-2">Update</button>
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   Delete
-</button>
-  </div>   
+</button>  
  
 </form>
   </div>
@@ -98,11 +97,11 @@ include "../db_conn.php";
       </div>
       <div class="modal-body">
       Are you sure you want to delete 
-      Transaction Number : <?php echo $row['transaction_no'] ?>?
+      <b>Transaction Number : <?php echo $row['transaction_no'] ?></b>?
       </div>
       <div class="modal-footer">
       <a href="delete.php?id=<?php echo $row['transaction_no'] ?>"><button type="button" class="btn btn-danger">Delete</button></a>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>

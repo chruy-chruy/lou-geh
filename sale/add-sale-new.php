@@ -6,12 +6,13 @@ include "../db_conn.php";
 <?php include "../includes/head.php";?> 
  
 <main>
+<a class="btn btn-secondary btn-sm mb-3" href="index.php">Back</a>
   
-<div>
-         <a href="index.php"><button>back</button></a>
-    </div>
+<div class="card">
+  <div class="card-body">
+  <label class="fw-bold mb-3">Customer Details</label>
+
   <form class="row g-3" action="create2.php" method="post">
-  <label style="position: relative; left: 480px;">Customer Details</label>
   <div class="col-6">
     <label class="form-label">Customer Name</label>
     <input type="text" class="form-control" id="name" name="name" required>
@@ -22,19 +23,17 @@ include "../db_conn.php";
     <input type="number"  class="form-control" id="contact_number" name="contact_number" required>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md">
     <label for="" class="form-label">Address</label>
     <textarea name="address" class="form-control"  id="address" required></textarea>
   </div>
-  <div class="col-md-6">
-  </div>
   
-  <label style="position: relative; left: 500px;">Item Details</label>
+  <label class="fw-bold mt-5 mb-1">Item Details</label>
 
   <div class="col-md-6">
   <label for="inputAddress" class="form-label">Product Name</label>
     <select name="item" id="item" class="form-select" required>
-    <option disabled hidden value="" selected>--</option>
+    <option disabled hidden value="" selected>Select</option>
     <?php
                     $squery =  mysqli_query($conn, "SELECT * from items Where del_status != 'deleted'");
                     while ($row = mysqli_fetch_array($squery)) {
@@ -65,12 +64,14 @@ include "../db_conn.php";
     <label for=""  id="total" class="form-control">0</label>
   </div>
 
-
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Submit</button>
   </div>
-
+  <div class="card-footer py-3 d-flex justify-content-end">
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+  </div>
+</div>
+  
 </main>
  </body>
  </html>

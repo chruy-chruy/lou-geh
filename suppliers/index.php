@@ -20,7 +20,7 @@ if(isset($_GET['message'])){
     <table id="table" class="table table-responsive" style="width:100%;">
            <thead>
                <tr>
-                   <th>Supplier Code</th>
+                   <th>Supplier ID</th>
                    <th>Supplier's Name</th>
                    <th>Company Name</th>
                    <th>Contact Number</th>

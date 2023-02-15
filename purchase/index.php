@@ -18,14 +18,14 @@ if(isset($_GET['message'])){
     </div>
    
  <div class="card-body">
- <table id="table" class="table table-responsive">
+ <table id="table" class="table">
         <thead>
             <tr>
-                <th>Purchase Id</th>
+                <th>Purchase ID</th>
                 <th>Suplier</th>
                 <th>Item Name</th>
                 <th>Product Description</th>
-                <th>quantity</th>
+                <th>Quantity</th>
                 <th>Cost per unit</th>
                 <th>Total Cost</th>
                 <th>Schedule Date</th>
@@ -50,7 +50,14 @@ if(isset($_GET['message'])){
             <td><?php echo $row['total_cost'] ?></td>
             <td><?php echo $row['date'] ?></td>
             <td><?php echo $row['date_delivered'] ?></td>
-            <td><?php echo $row['status'] ?></td>
+            <td>
+              <?php if($row['status'] == 'Pending'){ ?>
+            <span class="badge bg-primary">Pending</span>
+                <?php } else if($row['status'] == 'Received'){?>
+            <span class="badge bg-success">Received</span>
+            <?php } else if($row['status'] == 'Cancelled'){?>
+            <span class="badge bg-danger">Cancelled</span>
+            <?php }?>
             <td>
               <a href="edit-transaction.php?id=<?php echo $row['transaction_no'] ?>">
               <div class="btn btn-secondary btn-sm">View</div>

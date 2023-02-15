@@ -37,7 +37,7 @@ if (isset($_SESSION['id'])) {
 </head>
 
 <body>
-  <section class="vh-100" style="display: grid; place-items: center; align-content:center;">
+  <section class="vh-100 w-100" style="display: grid; place-items: center; align-content:center;">
 
       <form action="check_login.php" class="login__form" method="POST">
         <div class="form-outline mb-4 text-center">

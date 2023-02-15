@@ -12,7 +12,7 @@ $date = ucwords($_POST['date']);
 $id = $_GET['id'];
 $status =$_POST['status'];
 
-if($status == 'delivered'){
+if($status == 'Received'){
     $date_delivered = date("Y-m-d");
 }else{
     $date_delivered = '';

@@ -9,7 +9,7 @@ $price = ucwords($_POST['price']);
 $brand = ucwords($_POST['brand']);
 $total = ucwords($_POST['total']);
 $date = ucwords($_POST['date']);
-$status = 'pending';
+$status = 'Pending';
 //insert to purchase transaction
 $sql = "INSERT INTO `purchase_transaction`(`supplier_code`, `item_name`, `details`, `quantity`, `price`, `date`, `total_cost`, `brand`, `status`) 
 VALUES ('$supplier','$item','$details','$quantity','$price','$date','$total','$brand','$status')";

@@ -18,10 +18,10 @@ if(isset($_GET['message'])){
     </div>
   
  <div class="card-body">
- <table id="table" class="table">
+ <table id="table" class="table" style="width: 100%">
         <thead>
             <tr>
-                <th>Customer No</th>
+                <th>Customer ID</th>
                 <th>Name</th>
                 <th>Address</th>
                 <th>Contact Number</th>

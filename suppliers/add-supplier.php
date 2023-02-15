@@ -7,9 +7,10 @@ include "../db_conn.php";
 
 <main>
   
+<a class="btn btn-secondary btn-sm mb-3" href="index.php">Back</a>
+
 <div class="card">
      <div class="card-body">
-     <a class="btn btn-secondary btn-sm" href="index.php">Back</a>
   
   <form class="row g-3" action="create.php" method="post">
 
@@ -37,8 +38,8 @@ include "../db_conn.php";
   
      </div>
 
-     <div class="card-footer py-3">
-    <button type="submit" class="btn btn-primary">Submit</button>
+     <div class="card-footer py-3 d-flex justify-content-end">
+    <button type="submit" class="btn btn-primary">Add</button>
 
 </form>
      </div>
