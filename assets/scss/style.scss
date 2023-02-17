@@ -108,9 +108,9 @@ a {
     margin-bottom: 3px;
     border-radius: 5px;
 
-    &:last-child {
-      margin-top: auto;
-    }
+    // &:last-child {
+    //   margin-top: auto;
+    // }
 
     &:hover {
       background: darken($primary, 2);
@@ -134,6 +134,17 @@ a {
       span,
       i {
         color: rgba($white, 0.87);
+      }
+    }
+
+    &.nav__user {
+      color: $white;
+      background: rgba($white, 0.08);
+      // border: 1px solid rgba($white, 0.87);
+      font-size: 13px;
+      border-radius: 0;
+      span {
+        font-weight: 500;
       }
     }
   }
@@ -167,4 +178,12 @@ a {
       background: #e9ecef !important;
     }
   }
+}
+
+#datetime {
+  color: #858585;
+}
+
+th {
+  white-space: nowrap;
 }

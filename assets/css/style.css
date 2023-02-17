@@ -94,9 +94,6 @@ a {
   margin-bottom: 3px;
   border-radius: 5px;
 }
-.nav__link:last-child {
-  margin-top: auto;
-}
 .nav__link:hover {
   background: #3bac83;
 }
@@ -117,6 +114,15 @@ a {
 .nav__link a i {
   color: rgba(254, 254, 254, 0.87);
 }
+.nav__link.nav__user {
+  color: #fefefe;
+  background: rgba(254, 254, 254, 0.08);
+  font-size: 13px;
+  border-radius: 0;
+}
+.nav__link.nav__user span {
+  font-weight: 500;
+}
 .nav__active {
   background: #37a17b;
 }
@@ -134,4 +140,12 @@ a {
 
 .dropdown-item:active {
   background: #e9ecef !important;
+}
+
+#datetime {
+  color: #858585;
+}
+
+th {
+  white-space: nowrap;
 }/*# sourceMappingURL=style.css.map */

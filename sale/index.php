@@ -29,7 +29,7 @@ if(isset($_GET['message'])){
     <div class="card-body">
       
 
- <table id="table" class="table table-responsive" >
+ <table id="table" class="table table-responsive" style="width:100%">
         <thead>
             <tr>
                 <th>Transaction No.</th>

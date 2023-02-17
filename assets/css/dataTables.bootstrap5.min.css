@@ -1,3 +1,7 @@
+table.dataTable {
+  width: 100% !important;
+}
+
 table.dataTable th {
   white-space: nowrap;
   text-transform: capitalize;
