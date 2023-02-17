@@ -43,6 +43,10 @@ a {
   background: #fdfdfd;
   width: 450px;
 }
+.login__logo {
+  width: 90px;
+  margin-bottom: 20px;
+}
 .login__input {
   padding: 9px 12px !important;
 }
@@ -64,7 +68,7 @@ a {
 }
 
 #datetime {
-  color: #858585;
+  color: #727272;
 }
 
 .nav {
@@ -85,10 +89,16 @@ a {
 .nav__logo {
   margin-bottom: 7px !important;
   padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 .nav__logo span {
   font-weight: 600;
   color: #fefefe !important;
+}
+.nav__logo img {
+  width: 32px;
 }
 .nav__logo:hover {
   background: transparent !important;
@@ -153,4 +163,12 @@ th {
 .error-msg {
   font-size: 12px;
   color: #ff5b5b;
+}
+
+.dashboard__card {
+  color: #575757;
+}
+.dashboard__card-title {
+  font-size: 14.5px;
+  white-space: nowrap;
 }/*# sourceMappingURL=style.css.map */

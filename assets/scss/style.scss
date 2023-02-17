@@ -49,6 +49,11 @@ a {
     width: 450px;
   }
 
+  &__logo {
+    width: 90px;
+    margin-bottom: 20px;
+  }
+
   &__input {
     // min-width: 100%;
     padding: 9px 12px !important;
@@ -74,7 +79,7 @@ a {
 }
 
 #datetime {
-  color: #858585;
+  color: #727272;
 }
 
 // NAV
@@ -97,11 +102,19 @@ a {
   &__logo {
     margin-bottom: 7px !important;
     padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
 
     span {
       font-weight: 600;
       color: $white !important;
     }
+
+    img {
+      width: 32px;
+    }
+
     &:hover {
       background: transparent !important;
     }
@@ -193,4 +206,16 @@ th {
 .error-msg {
   font-size: 12px;
   color: #ff5b5b;
+}
+
+// DASHBOARD
+
+.dashboard {
+  &__card {
+    color: #575757;
+  }
+  &__card-title {
+    font-size: 14.5px;
+    white-space: nowrap;
+  }
 }

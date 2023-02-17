@@ -4,7 +4,8 @@
             <nav class="nav bg-white">
               <ul class="nav__list">
                   <li class="nav__link nav__logo">
-                    <span>Lou Geh Supermarket</span>
+                    <img src="../assets/images/logo.png" alt="">
+                    <span>SAVESEGROW PIMS</span>
                   </li>
 
 

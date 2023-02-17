@@ -11,15 +11,15 @@ $page = 'Dashboard'; ?>
 
 <div class="row g-3 mb-3">
   <div class="col-lg-3 col-md-6">
-    <div class="card">
+    <div class="card dashboard__card">
       <div class="card-body">
         <div class="row">
-          <div class="col-5 d-flex align-items-center">
+          <div class="col-lg-3 d-flex align-items-center">
             <i class='bx bx-money fs-1'></i>
           </div>
         <div class="col d-flex flex-column align-items-end justify-content-center">
           <p class="card-text fs-4 m-0 fw-bold">₱ <?php include 'total_sales.php'; ?> </p>
-          <p class="m-0">Sales</p>
+          <p class="m-0 dashboard__card-title">Sales</p>
         </div>
         </div>
       </div>
@@ -27,15 +27,15 @@ $page = 'Dashboard'; ?>
   </div>
 
   <div class="col-lg-3 col-md-6">
-    <div class="card">
+    <div class="card dashboard__card">
       <div class="card-body">
         <div class="row">
-          <div class="col-5 d-flex align-items-center">
+          <div class="col-lg-3 d-flex align-items-center">
             <i class='bx bxs-package fs-1'></i>
           </div>
         <div class="col d-flex flex-column align-items-end justify-content-center">
           <p class="card-text fs-4 m-0 fw-bold"><?php echo $products_available; ?> </p>
-          <p class="m-0">Products Available</p>
+          <p class="m-0 dashboard__card-title">Products Available</p>
         </div>
         </div>
       </div>
@@ -43,15 +43,15 @@ $page = 'Dashboard'; ?>
   </div>
 
   <div class="col-lg-3 col-md-6">
-    <div class="card">
+    <div class="card dashboard__card">
       <div class="card-body">
         <div class="row">
-          <div class="col-5 d-flex align-items-center">
+          <div class="col-lg-3 d-flex align-items-center">
             <i class='bx bxs-box fs-1'></i>
           </div>
         <div class="col d-flex flex-column align-items-end justify-content-center">
           <p class="card-text fs-4 m-0 fw-bold"><?php include 'stocks_onhand.php'; ?> </p>
-          <p class="m-0">Stocks</p>
+          <p class="m-0 dashboard__card-title">Stocks</p>
         </div>
         </div>
       </div>
@@ -59,15 +59,15 @@ $page = 'Dashboard'; ?>
   </div>
   
   <div class="col-lg-3 col-md-6">
-    <div class="card">
+    <div class="card dashboard__card">
       <div class="card-body">
         <div class="row">
-          <div class="col-5 d-flex align-items-center">
+          <div class="col-lg-3 d-flex align-items-center">
             <i class='bx bxs-badge-dollar fs-1'></i>
           </div>
         <div class="col d-flex flex-column align-items-end justify-content-center">
           <p class="card-text fs-4 m-0 fw-bold"><?php include 'unit_solds.php'; ?> </p>
-          <p class="m-0">Products Sold</p>
+          <p class="m-0 dashboard__card-title">Products Sold</p>
         </div>
         </div>
       </div>
@@ -77,60 +77,60 @@ $page = 'Dashboard'; ?>
 
 <div class="row g-3">
   <div class="col-lg-3 col-md-6">
-    <div class="card">
+    <div class="card dashboard__card">
       <div class="card-body">
         <div class="row">
-          <div class="col-5 d-flex align-items-center">
+          <div class="col-lg-3 d-flex align-items-center">
             <i class='bx bxs-group fs-1'></i>
           </div>
         <div class="col d-flex flex-column align-items-end justify-content-center">
           <p class="card-text fs-4 m-0 fw-bold"><?php include 'total_customer.php'; ?> </p>
-          <p class="m-0">Customers</p>
+          <p class="m-0 dashboard__card-title">Customers</p>
         </div>
         </div>
       </div>
     </div>
   </div>
   <div class="col-lg-3 col-md-6">
-    <div class="card">
+    <div class="card dashboard__card">
       <div class="card-body">
         <div class="row">
-          <div class="col-5 d-flex align-items-center">
+          <div class="col-lg-3 d-flex align-items-center">
             <i class='bx bxs-group fs-1'></i>
           </div>
         <div class="col d-flex flex-column align-items-end justify-content-center">
           <p class="card-text fs-4 m-0 fw-bold"><?php include 'total_supplier.php'; ?> </p>
-          <p class="m-0">Suppliers</p>
+          <p class="m-0 dashboard__card-title">Suppliers</p>
         </div>
         </div>
       </div>
     </div>
   </div>
   <div class="col-lg-3 col-md-6">
-    <div class="card">
+    <div class="card dashboard__card">
       <div class="card-body">
         <div class="row">
-          <div class="col-5 d-flex align-items-center">
+          <div class="col-lg-3 d-flex align-items-center">
             <i class='bx bxs-user-account fs-1'></i>
           </div>
         <div class="col d-flex flex-column align-items-end justify-content-center">
           <p class="card-text fs-4 m-0 fw-bold"><?php echo $total_sales_staff; ?> </p>
-          <p class="m-0">Sales Staff</p>
+          <p class="m-0 dashboard__card-title">Sales Staff</p>
         </div>
         </div>
       </div>
     </div>
   </div>
   <div class="col-lg-3 col-md-6">
-    <div class="card">
+    <div class="card dashboard__card">
       <div class="card-body">
         <div class="row">
-          <div class="col-5 d-flex align-items-center">
+          <div class="col-lg-3 d-flex align-items-center">
             <i class='bx bxs-user-account fs-1'></i>
           </div>
         <div class="col d-flex flex-column align-items-end justify-content-center">
           <p class="card-text fs-4 m-0 fw-bold"><?php echo $total_inventory_staff; ?> </p>
-          <p class="m-0">Inventory Staff</p>
+          <p class="m-0 dashboard__card-title">Inventory Staff</p>
         </div>
         </div>
       </div>

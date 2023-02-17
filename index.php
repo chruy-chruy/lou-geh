@@ -21,27 +21,32 @@ if (isset($_SESSION['id'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--=============== CSS ===============-->
+
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- CSS only -->
+
+  <!-- BOOTSTRAP -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-  <!--=============== MAIN JS ===============-->
-
-  <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
     crossorigin="anonymous"></script>
-  <title>Purchasing and Inventory System</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <title>SAVESEGROW Purchasing and Inventory System</title>
 </head>
 
 <body>
   <section class="vh-100 w-100" style="display: grid; place-items: center; align-content:center;">
 
+      <img class="login__logo" src="assets/images/logo.png" alt="">
+
       <form action="check_login.php" class="login__form" method="POST">
         <div class="form-outline mb-4 text-center">
-          <h3>Lou Geh Supermarket</h3>
+          <h3>SAVESEGROW Purchasing and Inventory System</h3>
         </div>
         <!-- Email input -->
         <div class="form-outline mb-3">
