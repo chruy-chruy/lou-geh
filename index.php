@@ -36,7 +36,7 @@ if (isset($_SESSION['id'])) {
   <!-- FAVICON -->
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 
-  <title>SAVESEGROW Purchasing and Inventory System</title>
+  <title>SAVESEGROW Purchasing and Inventory Management System</title>
 </head>
 
 <body>
@@ -46,7 +46,7 @@ if (isset($_SESSION['id'])) {
 
       <form action="check_login.php" class="login__form" method="POST">
         <div class="form-outline mb-4 text-center">
-          <h3>SAVESEGROW Purchasing and Inventory System</h3>
+          <h4>SAVESEGROW <br> Purchasing and Inventory Management System</h4>
         </div>
         <!-- Email input -->
         <div class="form-outline mb-3">
