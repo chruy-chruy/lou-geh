@@ -1,14 +1,13 @@
-<?php 
+<?php
 $page = 'Item';
-include "../db_conn.php";
-if(isset($_GET['message'])){
-  $message = $_GET['message'];
-  echo "<script type='text/javascript'>alert('$message');</script>";
-
+include '../db_conn.php';
+if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    echo "<script type='text/javascript'>alert('$message');</script>";
 }
- ?>
+?>
  
-<?php include "../includes/head.php";?> 
+<?php include '../includes/head.php'; ?> 
  
 <main>
   
@@ -34,24 +33,30 @@ if(isset($_GET['message'])){
         </thead>
         
         <tbody>
-        <?php $squery =  mysqli_query($conn, "SELECT * from items Where del_status != 'deleted'");
-        while ($row = mysqli_fetch_array($squery)) {
-          ?>
-            <tr>
-            <td><?php echo $row['item_number'] ?></td>
-            <td><?php echo $row['name'] ?></td>
-            <td><?php echo $row['brand'] ?></td>
-            <td><?php echo $row['quantity'] ?></td>
-            <td><?php echo $row['price'] ?></td>
-            <td><?php echo $row['selling_price'] ?></td>
-            <td><?php echo $row['revenue'] ?></td>
+        <?php
+        $squery = mysqli_query(
+            $conn,
+            "SELECT * from items Where del_status != 'deleted'"
+        );
+        while ($row = mysqli_fetch_array($squery)) { ?>
+            <tr <?php if ($row['quantity'] <= 0) {
+                echo "style='color:red;'";
+            } ?>>
+            <td><?php echo $row['item_number']; ?></td>
+            <td><?php echo $row['name']; ?></td>
+            <td><?php echo $row['brand']; ?></td>
+            <td><?php echo $row['quantity']; ?></td>
+            <td ><?php echo $row['price']; ?></td>
+            <td><?php echo $row['selling_price']; ?></td>
+            <td><?php echo $row['revenue']; ?></td>
             <td>
-              <a href="edit-product.php?id=<?php echo $row['item_number'] ?>">
+              <a href="edit-product.php?id=<?php echo $row['item_number']; ?>">
                 <div class="btn btn-secondary btn-sm">View</div>
               </a>
             </td>
             </tr>
-            <?php }?>
+            <?php }
+        ?>
             </tbody>
          
     </table>

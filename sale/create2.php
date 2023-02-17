@@ -1,11 +1,12 @@
-<?php 
+<?php
 
-include "../db_conn.php";
+include '../db_conn.php';
 $item_name = ucwords($_POST['item_name']);
 $quantity = ucwords($_POST['quantity']);
 $price = ucwords($_POST['price']);
 $total2 = ucwords($_POST['total2']);
 $sold_by = ucwords($_POST['sold_by']);
+$item_number = $_POST['item_number'];
 
 $name = ucwords($_POST['name']);
 $contact_number = ucwords($_POST['contact_number']);
@@ -22,5 +23,9 @@ $sql2 = "INSERT INTO `sale_transaction`(`customer_name`, `item_name`, `quantity`
 VALUES ('$name','$item_name','$quantity','$price','$total2','$sold_by')";
 mysqli_query($conn, $sql2);
 
- header("location:index.php?message=Create Succes");
+$sql3 = "UPDATE `items` SET `quantity`= items.quantity-$quantity 
+WHERE item_number = $item_number";
+mysqli_query($conn, $sql3);
+
+header('location:index.php?message=Create Succes');
 ?>
