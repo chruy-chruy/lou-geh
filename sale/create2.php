@@ -27,5 +27,5 @@ $sql3 = "UPDATE `items` SET `quantity`= items.quantity-$quantity
 WHERE item_number = $item_number";
 mysqli_query($conn, $sql3);
 
-header('location:index.php?message=Create Succes');
+header('location:index.php?message=Transaction successfully created.');
 ?>

@@ -40,7 +40,7 @@ if (isset($_GET['message'])) {
         );
         while ($row = mysqli_fetch_array($squery)) { ?>
             <tr <?php if ($row['quantity'] <= 0) {
-                echo "style='color:red;'";
+                echo "style='color:#ff5b5b; background: #fff9f9;'";
             } ?>>
             <td><?php echo $row['item_number']; ?></td>
             <td><?php echo $row['name']; ?></td>

@@ -138,13 +138,13 @@ $page = 'Dashboard'; ?>
   </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-7">
+<div class="row mt-4 g-3">
+  <div class="col-lg-7 col-md-12">
   <div class="card">
     <div class="card-header">
     <h6 class="m-2">Recent Sales Transactions</h6>
     </div>
-    <div class="card-body">
+    <div class="card-body table-responsive">
     <table class="table table-hover">
   <thead>
     <tr>
@@ -177,7 +177,7 @@ $page = 'Dashboard'; ?>
   </div>
   </div>
 
-  <div class="col-5">
+  <div class="col-lg-5 col-md-12">
     <div class="card">
       <div class="card-body">
         <canvas id="myChart"></canvas>

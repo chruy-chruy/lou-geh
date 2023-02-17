@@ -12,8 +12,8 @@ include "../db_conn.php";
         <div class="card-body">
         
    
-   <label class="form-label fw-bold mb-3">Product Number : <?php echo $_GET['id'];?></label>
-   <form class="row" action="update.php?id=<?php echo $_GET['id'];?>" method="post">
+   <label class="form-label fw-bold mb-1">Product Number : <?php echo $_GET['id'];?></label>
+   <form class="row g-3" action="update.php?id=<?php echo $_GET['id'];?>" method="post">
    <div class="col-md-6">
    <?php $id = $_GET['id'];
    $squery =  mysqli_query($conn, "SELECT * from items Where item_number = $id");
@@ -41,7 +41,7 @@ include "../db_conn.php";
    </div>
  
    <div class="col-md-6">
-     <label for="" class="form-label">Price per unit</label>
+     <label for="" class="form-label">Price Per Unit</label>
      <input type="number" step=0.01 class="form-control" id="price" name="price" value="<?php echo $row['price'] ?>" required>
    </div>
  
@@ -53,7 +53,7 @@ include "../db_conn.php";
    <div class="col-md-6">
      <label for="" class="form-label">Expected Revenue</label>
      <input type="number" step=0.01 class="form-control" id="revenue" name="revenue" value="<?php echo $row['revenue'] ?>" hidden required>
-     <label class="form-control" id="revenue2"><?php echo $row['revenue'] ?></label>
+     <label class="form-control bg-light" id="revenue2"><?php echo $row['revenue'] ?></label>
    </div>
  
  

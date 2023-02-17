@@ -14,7 +14,7 @@ if(isset($_GET['message'])){
     <div class="card">
     <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <h5 class="m-0">Purchase</h5>
-    <a class="btn btn-primary" href="add-transaction.php">Purchase Item</a>
+    <a class="btn btn-primary" href="add-transaction.php">Purchase Product</a>
     </div>
    
  <div class="card-body">

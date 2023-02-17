@@ -33,7 +33,7 @@ include '../db_conn.php';
   </div>
 
   <div class="col-6">
-    <label class="form-label">Item Name</label>
+    <label class="form-label">Product Name</label>
     <input type="text" class="form-control" id="item" name="item" required>
   </div>
 
@@ -42,24 +42,24 @@ include '../db_conn.php';
     <input type="text" class="form-control" id="brand" name="brand" required>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-4">
     <label for="" class="form-label">Quantity</label>
     <input type="number"  class="form-control" id="quantity" name="quantity" required>
   </div>
 
-  <div class="col-md-6">
-    <label for="" class="form-label">Price per unit</label>
+  <div class="col-md-4">
+    <label for="" class="form-label">Price Per Unit</label>
     <input type="number" step=0.01 class="form-control" id="price" name="price" required>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-4">
     <label for="" class="form-label">Total Cost</label>
     <input type="number" step=0.01 class="form-control" id="total" name="total" hidden required>
-    <label class="form-control" id="total2">0</label>
+    <label class="form-control bg-light" id="total2">0</label>
   </div>
 
   <div class="col-md-12">
-    <label for="" class="form-label">Description</label>
+    <label for="" class="form-label">Add Description</label>
     <textarea  class="form-control" id="details" name="details" rows=8 required></textarea>
   </div>
 

@@ -27,7 +27,7 @@ include "../db_conn.php";
     <input type="number"  class="form-control" id="contact_number" name="contact_number" value="<?php echo $row['contact_number'] ?>" required>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-12">
     <label for="" class="form-label">Address</label>
     <textarea name="address" class="form-control"  id="address" required><?php echo $row['address'] ?></textarea>
   </div>

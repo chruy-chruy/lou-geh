@@ -48,14 +48,14 @@ include "../db_conn.php";
   </div>
 
   <div class="col-md-6">
-    <label for="" class="form-label">Price per unit</label>
+    <label for="" class="form-label">Price Per Unit</label>
     <input type="number" step=0.01 class="form-control" id="price" name="price" value="<?php echo $row['price'] ?>" required>
   </div>
 
   <div class="col-md-6">
     <label for="" class="form-label">Total Cost</label>
     <input type="number" step=0.01 class="form-control" id="total" name="total" value="<?php echo $row['total_cost'] ?>" hidden required>
-    <label class="form-control" id="total2"><?php echo $row['total_cost'] ?></label>
+    <label class="form-control bg-light" id="total2"><?php echo $row['total_cost'] ?></label>
   </div>
 
   <div class="col-md-6">

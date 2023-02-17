@@ -55,27 +55,28 @@ include '../db_conn.php';
   ]; ?>" hidden required>
 
   <div class="col-md-6">
-    <label for="" class="form-label">Quantity</label>
-    <input type="number"  class="form-control" id="quantity" name="quantity" required>
-    <span id = "quantity_message" style ="color:red"></span>
-  </div>
-
-  <div class="col-md-3">
-    <label for="" class="form-label">Selling Price</label>
-     <input type="number" step=0.01 class="form-control" id="price" name="price" hidden> 
-    <label for=""  id="price2" class="form-control">0</label>
-  </div>
-
-  <div class="col-md-3">
-    <label for="" class="form-label">Stocks</label>
+    <label for="" class="form-label">Stocks Available</label>
      <input type="number" step=0.01 class="form-control" id="stocks" name="stocks" hidden> 
-    <label for=""  id="stocks2" class="form-control">0</label>
+    <label for=""  id="stocks2" class="form-control bg-light">0</label>
   </div>
 
   <div class="col-md-6">
-    <label for="" class="form-label">Total Price</label>
+    <label for="" class="form-label">Quantity</label>
+    <input type="number"  class="form-control" id="quantity" name="quantity" required>
+    <span class="error-msg"></span>
+  </div>
+  
+  <div class="col-md-6">
+    <label for="" class="form-label">Price</label>
+     <input type="number" step=0.01 class="form-control" id="price" name="price" hidden> 
+    <label for=""  id="price2" class="form-control bg-light">0</label>
+  </div>
+
+
+  <div class="col-md-6">
+    <label for="" class="form-label">Total Amount</label>
      <input type="number" step=0.01 class="form-control" id="total2" name="total2" hidden> 
-    <label for=""  id="total" class="form-control">0</label>
+    <label for=""  id="total" class="form-control bg-light">0</label>
   </div>
 
   </div>

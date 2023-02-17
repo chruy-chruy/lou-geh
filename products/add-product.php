@@ -25,11 +25,8 @@ include "../db_conn.php";
      </select>
    </div>
  
-   <div class="col-md-6">
-   </div>
- 
    <div class="col-6">
-     <label class="form-label">Item Name</label>
+     <label class="form-label">Product Name</label>
      <input type="text" class="form-control" id="name" name="name" required>
    </div>
  
@@ -43,20 +40,20 @@ include "../db_conn.php";
      <input type="number"  class="form-control" id="quantity" name="quantity" required>
    </div>
  
-   <div class="col-md-6">
-     <label for="" class="form-label">Price per unit</label>
+   <div class="col-md-4">
+     <label for="" class="form-label">Price Per Unit</label>
      <input type="number" step=0.01 class="form-control" id="price" name="price" required>
    </div>
  
-   <div class="col-md-6">
+   <div class="col-md-4">
      <label for="" class="form-label">Selling Price</label>
      <input type="number" step=0.01 class="form-control" id="selling_price" name="selling_price" required>
    </div>
  
-   <div class="col-md-6">
+   <div class="col-md-4">
      <label for="" class="form-label">Expected Revenue</label>
      <input type="number" step=0.01 class="form-control" id="revenue" name="revenue" hidden required>
-     <label class="form-control" id="revenue2">0</label>
+     <label class="form-control bg-light" id="revenue2">0</label>
    </div>
  
    <div class="col-md-12">
