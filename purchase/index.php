@@ -36,7 +36,7 @@ if(isset($_GET['message'])){
         </thead>
         
         <tbody>
-        <?php $squery =  mysqli_query($conn, "SELECT p.*,s.company_name from purchase_transaction p JOIN supplier s Where p.del_status != 'deleted'");
+        <?php $squery =  mysqli_query($conn, "SELECT p.*,s.company_name from purchase_transaction p JOIN supplier s Where s.supplier_code=p.supplier_code AND p.del_status != 'deleted'");
         while ($row = mysqli_fetch_array($squery)) {
           ?>
  

@@ -5,7 +5,7 @@ include "../db_conn.php";
 
 <?php include "../includes/head.php";?> 
 
-    <main>
+<main>
 <a class="btn btn-secondary btn-sm mb-3" href="index.php">Back</a>
 
     <div class="card">
@@ -13,12 +13,12 @@ include "../db_conn.php";
     
   <label class="form-label fw-bold mb-3">Transaction Number : <?php echo $_GET['id'];?></label>
   <form class="row g-3" action="update.php?id=<?php echo $_GET['id'];?>" method="post">
- 
+
   <?php $id = $_GET['id'];
-  $squery =  mysqli_query($conn, "SELECT p.*,s.name from purchase_transaction p JOIN supplier s   Where transaction_no = $id");
+  $squery =  mysqli_query($conn, "SELECT p.*,s.name from purchase_transaction p JOIN supplier s   Where s.supplier_code=p.supplier_code AND  transaction_no = $id");
         while ($row = mysqli_fetch_array($squery)) {
           ?>  
-        
+      
   <div class="col-md-6">
   <label class="form-label">Supplier</label>
     <select name="supplier" id="supplier" class="form-select" required>

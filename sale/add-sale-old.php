@@ -50,9 +50,8 @@ include '../db_conn.php';
 
   <input type="text"  class="form-control" id="item_name" name="item_name" hidden required>
   <input type="text"  class="form-control" id="item_number" name="item_number" hidden required>
-  <input type="text"  class="form-control" id="sold_by" name="sold_by" value="<?php echo $_SESSION[
-      'username'
-  ]; ?>" hidden required>
+  <input type="text"  class="form-control" id="sold_by" name="sold_by" value="<?php 
+  echo $_SESSION['fullName']." (". $_SESSION['role'].")"; ?>" hidden required>
 
   <div class="col-md-6">
     <label for="" class="form-label">Stocks Available</label>
