@@ -1,8 +1,15 @@
 <header class="header d-flex align-items-center justify-content-center">
     <span id="datetime"></span>
+    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'Dashboard') {echo 'Dashboard';} ?></h3>
+    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'POS') {echo 'Point of Sale';} ?></h3>
+    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'Sale Transaction') {echo 'Sales Report';} ?></h3>
+    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'Inventory Report') {echo 'Inventory Report';} ?></h3>
+    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'Product List') {echo 'Product List';} ?></h3>
+    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'User') {echo 'Users';} ?></h3>
+
 </header>
 
-<script>
+<!-- <script>
     function showTime(){
     let date = new Date();
 
@@ -51,4 +58,4 @@
 }
 
 showTime();
-</script>
+</script> -->

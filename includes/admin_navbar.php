@@ -14,28 +14,35 @@
                     </a>
                   </li>
 
+                  <li class="nav__link <?php if ($page == 'POS') {echo 'nav__active';} ?>">
+                  <a href="../pos/">
+                  <i class='bx bxs-tachometer'></i>
+                  <span>POS</span>
+                    </a>
+                  </li>
+
                   <li class="nav__link <?php if ($page == 'Sale Transaction') {echo 'nav__active';} ?>">
                     <a href="../sale/">
                     <i class='bx bxs-store'></i>
-                    <span>Sale</span>
+                    <span>Sales Report</span>
                     </a>
                     </li>
 
                     <li class="nav__link <?php if ($page == 'purchase Transaction') {echo 'nav__active';} ?>">
                    <a href="../purchase/">
                     <i class='bx bxs-cart-alt'></i>
-                    <span>Purchase</span>
+                    <span>Inventory Report</span>
                     </a>
                    </li>
 
-                   <li class="nav__link <?php if ($page == 'Item') {echo 'nav__active';} ?>">
+                   <li class="nav__link <?php if ($page == 'Product List') {echo 'nav__active';} ?>">
                     <a href="../products/">
                     <i class='bx bxs-package'></i>
-                    <span>Products</span>
+                    <span>Product List</span>
                     </a>
                     </li>
                     
-                    <li class="nav__link <?php if ($page == 'Supplier') {echo 'nav__active';} ?>">
+                    <!-- <li class="nav__link <?php if ($page == 'Supplier') {echo 'nav__active';} ?>">
                     <a href="../suppliers/">
                     <i class='bx bxs-group'></i>
                     <span>Suppliers</span>
@@ -48,7 +55,7 @@
                     <i class='bx bx-id-card'></i>
                     <span>Customers</span>
                     </a>
-                    </li>
+                    </li> -->
 
 
                     <li class="nav__link <?php if ($page == 'User') {echo 'nav__active';}  ?>">

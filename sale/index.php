@@ -33,13 +33,11 @@ if(isset($_GET['message'])){
         <thead>
             <tr>
                 <th>Transaction No.</th>
-                <th>Customer Name</th>
+                <th>Customer</th>
                 <th>Item</th>
-                <th>Quantity</th>
-                <th>Price Per Unit</th>
                 <th>Total Price</th>
                 <th>Date</th>
-                <th>Sold By</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -51,11 +49,10 @@ if(isset($_GET['message'])){
             <td><?php echo $row['transaction_no'] ?></td>
             <td><?php echo $row['customer_name'] ?></td>
             <td><?php echo $row['item_name'] ?></td>
-            <td><?php echo $row['quantity'] ?></td>
-            <td><?php echo $row['price'] ?></td>
             <td><?php echo $row['total'] ?></td>
             <td><?php echo date("l, F j Y g:i A", strtotime($row["created_at"])); ?></td>
-            <td><?php echo $row['sold_by'] ?></td>
+            <td><a href="edit-product.php?id=<?php echo $row['transaction_no']; ?>">
+                <div class="btn btn-secondary btn-sm">View</div></td>
             </tr> <?php }?>
             </tbody>
            
@@ -67,4 +64,5 @@ if(isset($_GET['message'])){
  </div>
  </html>
  <script src="../assets/js/table.js"></script>
+ 
  

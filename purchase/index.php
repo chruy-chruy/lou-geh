@@ -1,5 +1,5 @@
 <?php 
-$page = 'purchase Transaction';
+$page = 'Inventory Report';
 include "../db_conn.php";
 if(isset($_GET['message'])){
       $message = $_GET['message'];

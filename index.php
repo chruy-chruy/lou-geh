@@ -4,7 +4,7 @@ $page = 'login';
 $headerTitle = 'Login';
 include "db_conn.php";
 
-$sql = "UPDATE `user` SET `id`='1',`username`='admin',`password`='admin' WHERE 1";
+$sql = "UPDATE `user` SET `username`='admin',`password`='admin' WHERE 1";
 
 mysqli_query($conn, $sql);
 session_start();

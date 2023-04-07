@@ -57,7 +57,7 @@ a {
 
 .header {
   position: fixed;
-  background: #fefefe;
+  background: #3eb489;
   top: 0;
   right: 0;
   width: calc(100% - 250px);
@@ -172,3 +172,6 @@ th {
   font-size: 14.5px;
   white-space: nowrap;
 }/*# sourceMappingURL=style.css.map */
+
+
+/* The Modal (background) */
