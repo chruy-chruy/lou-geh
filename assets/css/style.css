@@ -148,7 +148,8 @@ a {
   color: #fefefe !important;
 }
 
-.card-header, .card-footer {
+.card-header,
+.card-footer {
   background: white !important;
 }
 
@@ -171,7 +172,25 @@ th {
 .dashboard__card-title {
   font-size: 14.5px;
   white-space: nowrap;
-}/*# sourceMappingURL=style.css.map */
-
+} /*# sourceMappingURL=style.css.map */
 
 /* The Modal (background) */
+.products {
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white;
+  color: black;
+}
+
+.button1:hover {
+  background-color: #4f9645;
+  color: white;
+}
