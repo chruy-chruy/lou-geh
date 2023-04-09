@@ -26,14 +26,14 @@
 
                       <div class="col-12">
                           <label class="form-label" style="color: black; font-weight: bold;">Price :
-                              &#8369;<?php echo $row['selling_price'];?> </label>
+                             <?php echo asPesos($row['selling_price']);?> </label>
                           <input hidden type="text" id="selling_price" name="selling_price"
                               value="<?php echo $row['selling_price'];?>" required>
                       </div>
 
                       <div class="col-12">
                           <label class="form-label" style="color: black; font-weight: bold; "> Stock Left :</label>
-                          <span style="color:red"><?php echo $row['quantity'];?></span>
+                          <span style="color:red;font-weight: bold;"><?php echo $row['quantity'];?></span>
                           <input hidden type="text" id="stock" name="stock" value="<?php echo $row['quantity'];?>"
                               required>
                       </div>

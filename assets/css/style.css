@@ -49,6 +49,7 @@ a {
 }
 .login__input {
   padding: 9px 12px !important;
+  border: none;
 }
 .login__button {
   background: #3eb489 !important;
@@ -193,4 +194,21 @@ th {
 .button1:hover {
   background-color: #4f9645;
   color: white;
+}
+
+
+.close {
+  transform: translate(0%, -50%);
+  cursor: pointer;
+  border: 0px;
+  background-color: transparent;
+  color: #c10000;
+  font-size: 20px;
+  float: right;
+}
+
+input[type=number] {
+  border: none;
+  border-bottom: 2px solid green;
+  outline: none;
 }

@@ -1,7 +1,12 @@
 <?php
 $page = 'POS'; ?>
 <?php include '../includes/head.php';
-  include "../db_conn.php"; ?>
+  include "../db_conn.php"; 
+  function asPesos($value) {
+    if ($value<0) return "-".asPesos(-$value);
+    return '₱' . number_format($value, 2);
+    } ?>
+  
 <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 <main>
 
@@ -27,7 +32,7 @@ $page = 'POS'; ?>
                                         </div>
                                     </div>
                                 </button>
-                                <?php  include "modal.php"; ?>
+                                <?php  include "modal-product.php"; ?>
                             </div>
                         </div>
                         <?php }?>
@@ -38,27 +43,27 @@ $page = 'POS'; ?>
         </form>
         <div class="col-lg-5 col-md-12">
             <div class="card">
-                <div class="card-body" style="height: 700px; overflow: auto;">
+                <div class="card-body" style="height: 700px; overflow: auto; width:100%; font-size: 15px">
                     <table class="table table-responsive" id="table">
                         <thead>
                             <tr>
-                                <th scope="col">Product Code</th>
                                 <th scope="col">Product Name</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Total</th>
-
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $squery = mysqli_query($conn,"SELECT * from pos");
                             while ($row = mysqli_fetch_array($squery)) { ?>
                             <tr>
-                                <td><?php echo $row['item_number']; ?></td>
                                 <td><?php echo $row['product_name']; ?></td>
                                 <td><?php echo $row['quantity']; ?></td>
-                                <td>&#8369;<?php echo $row['price']; ?></td>
-                                <td>&#8369;<?php echo $row['total_price']; ?></td>
+                                <td><?php echo asPesos($row['price']); ?></td>
+                                <td><?php echo asPesos($row['total_price']); ?></td>
+                                <td><a href=""><i class="fa-regular fa-pen-to-square" style="color: #052c6b;"></i></i></a>
+                                    <a href=""><i class="fa-solid fa-trash" style="color: #d3523c;"></i></a></td>
                             </tr>
                             <?php }?>
                         </tbody>
@@ -71,21 +76,21 @@ $page = 'POS'; ?>
                     <span id="total" style="color: green; font-weight: bold; font-size: 25px"><?php
                  $squery = mysqli_query($conn,"SELECT sum(total_price) as total FROM pos");
                  while ($row = mysqli_fetch_array($squery)) {
-                   echo $row['total']; 
-                 }
-                 
-          ?></span>
+                   echo $row['total']; ?>
+          </span>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary">ORDER</button>
+                    <button type="submit" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#order">ORDER</button>
+                                    <?php  include "modal-order.php"; ?>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
     </div>
+    <?php }?>
 </main>
 </body>
-
 </html>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
