@@ -5,9 +5,13 @@ $page = 'POS'; ?>
   function asPesos($value) {
     if ($value<0) return "-".asPesos(-$value);
     return '₱' . number_format($value, 2);
-    } ?>
-  
-<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    } 
+    
+    if (isset($_GET['message'])) {
+        $message = $_GET['message'];
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }?>
+
 <main>
 
     <div class="row mt-4 g-3">
@@ -15,13 +19,17 @@ $page = 'POS'; ?>
         <div class="col-lg-7 col-md-12">
             <div class="card ">
                 <div class="card-header">
-                    <h6 class="m-2" style="font-weight: bold;">Products</h6>
+
+                    <span style="font-weight: bold;">
+                        Product List
+                        <input style="float: right;" type='text' id='searchp' placeholder="Search Product" />
+                    </span>
                 </div>
                 <div class="card-body table-responsive" style="max-width: 100%; height: 700px; overflow: auto;">
                     <div class="row g-3 mb-3">
                         <?php $squery = mysqli_query($conn,"SELECT * from items Where del_status != 'deleted'");
                         while ($row = mysqli_fetch_array($squery)) { ?>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 products_list">
                             <div class="card dashboard__card">
                                 <!-- Trigger/Open The Modal -->
                                 <button class="products button1" data-toggle="modal"
@@ -47,7 +55,7 @@ $page = 'POS'; ?>
                     <table class="table table-responsive" id="table">
                         <thead>
                             <tr>
-                                <th scope="col">Product Name</th>
+                                <th scope="col">Product</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Total</th>
@@ -62,9 +70,18 @@ $page = 'POS'; ?>
                                 <td><?php echo $row['quantity']; ?></td>
                                 <td><?php echo asPesos($row['price']); ?></td>
                                 <td><?php echo asPesos($row['total_price']); ?></td>
-                                <td><a href=""><i class="fa-regular fa-pen-to-square" style="color: #052c6b;"></i></i></a>
-                                    <a href=""><i class="fa-solid fa-trash" style="color: #d3523c;"></i></a></td>
+                                <td>
+                                    <!-- edit -->
+                                    <a href="" data-toggle="modal" data-target="#edit_<?php echo $row['pos_id']; ?>"><i
+                                            class="fa-regular fa-pen-to-square" style="color: #052c6b;"></i></i></a>
+                                    <!-- delete -->
+                                    <a href="" data-toggle="modal"
+                                        data-target="#delete_<?php echo $row['pos_id']; ?>"><i class="fa-solid fa-trash"
+                                            style="color: #d3523c;"></i></a>
+                                </td>
                             </tr>
+                            <?php  include "modal-delete.php"; ?>
+                            <?php  include "modal-edit.php"; ?>
                             <?php }?>
                         </tbody>
                     </table>
@@ -73,16 +90,16 @@ $page = 'POS'; ?>
             <div class="footer" style=" padding: 10px">
                 <div style="float: right;">
                     <span>Total:</span>
-                    <span id="total" style="color: green; font-weight: bold; font-size: 25px"><?php
-                 $squery = mysqli_query($conn,"SELECT sum(total_price) as total FROM pos");
+                    <span id="total" style="color: green; font-weight: bold; font-size: 25px">
+                        <?php $squery = mysqli_query($conn,"SELECT sum(total_price) as total FROM pos");
                  while ($row = mysqli_fetch_array($squery)) {
-                   echo $row['total']; ?>
-          </span>
+                   echo asPesos($row['total']); ?>
+                    </span>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#order">ORDER</button>
-                                    <?php  include "modal-order.php"; ?>
+                        data-target="#order">ORDER</button>
+                    <?php  include "modal-order.php"; ?>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
@@ -91,8 +108,9 @@ $page = 'POS'; ?>
     <?php }?>
 </main>
 </body>
-</html>
 
+</html>
+<script src="../assets/js/script_pos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>

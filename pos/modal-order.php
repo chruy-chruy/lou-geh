@@ -17,15 +17,21 @@
 
                       <div class="col-12">
                           <label class="form-label" style="color: black; font-weight: bold;">Total Payment:
-                        <span style="font-size: 20px;"><?php echo asPesos($row['total']); ?></span></label>
-                          <input hidden type="text" id="name" name="name" value="<?php echo 'dsds'?>" required>
+                              <span style="font-size: 20px;"><?php echo asPesos($row['total']); ?></span></label>
+                          <input hidden type="text" id="total" name="total" value="<?php echo$row['total']?>" required>
+                      </div>
+                      <div class="col-12">
+                          <label class="form-label" style="color: black; font-weight: bold;"> Customer Name :</label>
+                          <br>
+                          <input class="modal-input" type="text" id="customer" name="customer" placeholder="Optional"
+                              style=" width: 100%; text-align:center;">
                       </div>
 
                       <div class="col-12">
                           <label class="form-label" style="color: black; font-weight: bold;"> Amount :</label>
                           <br>
-                          <input type="number" id="quantity" name="quantity" style=" width: 100%; text-align:center;"
-                          autofocus required >
+                          <input class="modal-input" type="number" id="amount" name="amount"
+                              style=" width: 100%; text-align:center;" required>
                       </div>
               </div>
 

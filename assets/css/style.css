@@ -196,7 +196,6 @@ th {
   color: white;
 }
 
-
 .close {
   transform: translate(0%, -50%);
   cursor: pointer;
@@ -207,7 +206,7 @@ th {
   float: right;
 }
 
-input[type=number] {
+.modal-input {
   border: none;
   border-bottom: 2px solid green;
   outline: none;

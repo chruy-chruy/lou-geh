@@ -1,0 +1,110 @@
+#invoice-POS {
+  width: 44mm;
+}
+#invoice-POS ::-moz-selection {
+  background: #f31544;
+  color: #fff;
+}
+#invoice-POS ::selection {
+  background: #f31544;
+  color: #fff;
+}
+#invoice-POS ::moz-selection {
+  background: #f31544;
+  color: #fff;
+}
+#invoice-POS h1 {
+  font-size: 1.5em;
+  color: #000000;
+}
+#invoice-POS h2 {
+  font-size: 0.9em;
+}
+#invoice-POS h3 {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 2em;
+}
+#invoice-POS p {
+  font-size: 0.7em;
+  color: #000000;
+  line-height: 1.2em;
+}
+#invoice-POS #top,
+#invoice-POS #mid,
+#invoice-POS #bot {
+  /* Targets all id with 'col-' */
+  border-bottom: 1px solid #eee;
+}
+#invoice-POS #top {
+  min-height: 100px;
+}
+#invoice-POS #mid {
+  min-height: 80px;
+}
+#invoice-POS #bot {
+  min-height: 50px;
+}
+#invoice-POS #top #logo {
+  height: 60px;
+  width: 60px;
+  background-size: 60px 60px;
+}
+#invoice-POS .info {
+  display: block;
+  margin-left: 0;
+  text-align: center;
+}
+#invoice-POS .title {
+  float: right;
+}
+#invoice-POS .title p {
+  text-align: right;
+}
+#invoice-POS table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#invoice-POS .tabletitle {
+  font-size: 0.6em;
+  border-bottom: 1px solid #eee;
+}
+#invoice-POS .total {
+  font-size: 0.6em;
+}
+#invoice-POS .service {
+  border-bottom: 1px solid #eee;
+}
+
+#invoice-POS .item {
+  width: 21mm;
+}
+#invoice-POS .itemtext {
+  font-size: 0.6em;
+}
+#invoice-POS .itemtext2 {
+  font-size: 0.6em;
+  text-align: center;
+}
+#invoice-POS .item2 {
+  text-align: center;
+}
+#invoice-POS .itemtext3 {
+  font-size: 0.6em;
+}
+#invoice-POS .Rate,
+.payment,
+.itemtext3 {
+  float: right;
+}
+#invoice-POS #footer {
+  text-align: center;
+  margin-top: 5mm;
+} /*# sourceMappingURL=receipt.css.map */
+
+@media print {
+  .hidden-print,
+  .hidden-print * {
+    display: none !important;
+  }
+}
