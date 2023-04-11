@@ -4,7 +4,11 @@ include "../db_conn.php";
 $total = $_POST['total'];
 $amount = $_POST['amount'];
 $change = $amount-$total;
-$customer = ucwords($_POST['customer']);
+;
+if ($_POST['customer'])
+{$customer = ucwords($_POST['customer']);}
+else $customer = "Walk-In";
+
 $sold_by = $_SESSION['fullName']." (". $_SESSION['role'].") ";
 
 // $pos = mysqli_fetch_assoc(mysqli_query($conn,"SELECT quantity FROM `pos` WHERE item_number = $item_number"));

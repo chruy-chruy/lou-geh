@@ -6738,6 +6738,7 @@ fieldset:disabled .btn {
 }
 .m-0 {
   margin: 0 !important;
+  font-weight: bold;
 }
 .m-1 {
   margin: 0.25rem !important;

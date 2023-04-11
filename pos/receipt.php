@@ -1,8 +1,7 @@
 <?php
 session_start();
 include "../db_conn.php";
-$transaction_id = $_GET['transaction_id'];
-function asPesos($value) {
+$transaction_id = $_GET['transaction_id'];function asPesos($value) {
     if ($value<0) return "-".asPesos(-$value);
     return  number_format($value, 0);
     } 
