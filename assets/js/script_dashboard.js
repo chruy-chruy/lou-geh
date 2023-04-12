@@ -9,12 +9,16 @@ $(document).ready(function () {
       //   console.log(value[0].year)
       let year = [];
       let month = [];
-      let total = [];
+      let total = [0,0,0,0,0,0,0,0,0,0,0,0];
       for (let index = 0; index < value.length; index++) {
         year.push(value[index].year);
         month.push(value[index].month);
-        total.push(value[index].total);
       }
+
+      for (let index = 0; index < month.length; index++) {
+        total[month[index]] = month[index]
+      }
+
       new Chart(ctx, {
         type: "bar",
         data: {
