@@ -20,10 +20,10 @@ $page = 'POS'; ?>
             <div class="card ">
                 <div class="card-header">
 
-                    <span style="font-weight: bold;">
-                        Product List
-                        <input style="float: right;" type='text' id='searchp' placeholder="Search Product" />
-                    </span>
+                    <div style="font-weight: bold;padding: 5px; font-size:20px;">
+                        Products
+                        <input class="searchp" type='text' id='searchp' placeholder="Search Product" />
+                    </div>
                 </div>
                 <div class="card-body table-responsive" style="max-width: 100%; height: 700px; overflow: auto;">
                     <div class="row g-3 mb-3">

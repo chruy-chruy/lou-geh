@@ -1,7 +1,17 @@
+<?php
+include '../db_conn.php';
+$date_from = $_POST['date_from'];
+$date_to = $_POST['date_to'];
+function asPesos($value) {
+    if ($value<0) return "-".asPesos(-$value);
+    return  number_format($value, 0);
+    } 
+?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
+<link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <style>
         #customers {
             font-family: Arial, Helvetica, sans-serif;
@@ -48,6 +58,9 @@
             background-color: #1f9103;
             color: rgb(241, 241, 241);
 
+        }
+        .total_sale{
+            text-align:right;
         }
 
         .hidden-print {
@@ -117,7 +130,6 @@
             }
 
             body {
-                font-family: 'Source Sans Pro', sans-serif;
                 -webkit-print-color-adjust: exact;
             }
 
@@ -145,101 +157,89 @@
 </head>
 
 <body>
-
-    <h1>A Fancy Table</h1>
+    <h1>Sales Report</h1>
     <div id="printBtn" class="hidden-print">
         <button class="Button Button--outline" onclick="printDiv()"><i class="gg-printer"></i></button>
     </div>
     <div id="printableTable">
         <table id="customers">
+           <thead>
             <tr>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Country</th>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Country</th>
+                <th>Pos No.</th>
+                <th>Customer Name</th>
+                <th>Date Order</th>
+                <th>Sold By</th>
+                <th>Total Price</th>
             </tr>
+            </thead> 
+            <tbody>            
+            <?php      
+            if(isset($date_from) && isset($date_to)){
+                        if($date_to == null){
+                            $date_from = $date_from;
+                            $date_to =date("Y-m-d");
+                        }else{
+                            $date_from =$date_from;
+                            $date_to = $date_to;
+                        }
+
+                        $squery =  mysqli_query($conn, "SELECT * from sale_transaction WHERE created_at BETWEEN '$date_from' AND '$date_to' ");
+                        while ($row = mysqli_fetch_array($squery)) {
+                            ?>
             <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
+                <td><?php echo $row['transaction_no'] ?></td>
+                <td><?php echo $row['customer_name'] ?></td>
+                <td><?php echo $row['created_at'] ?></td>
+                <td><?php echo $row['sold_by'] ?></td>
+                <td><?php echo '₱'. asPesos($row['total']) ?></td> 
             </tr>
+            <?php }}else{
+                        $date_from;
+                        $date_to;
+
+                           $squery =  mysqli_query($conn, "SELECT * from sale_transaction");
+                    while ($row = mysqli_fetch_array($squery)) {
+                ?>      <tr>
+                <td><?php echo $row['transaction_no'] ?></td>
+                <td><?php echo $row['customer_name'] ?></td>
+                <td><?php echo $row['created_at'] ?></td>
+                <td><?php echo $row['sold_by'] ?></td>
+                <td><?php echo '₱'. asPesos($row['total']) ?></td> 
+            </tr>
+
+
+                   <?php }} ?>
+            <?php if(isset($date_from) && isset($date_to)){
+                        if($date_to == null){
+                            $date_from =$date_from;
+                            $date_to =date("Y-m-d");
+                        }else{
+                            $date_from =$date_from;
+                            $date_to = $date_to;
+                        }
+                        $total =  mysqli_query($conn, "SELECT SUM(total) as total from sale_transaction WHERE created_at BETWEEN '$date_from' AND '$date_to' ");
+            while ($row = mysqli_fetch_array($total)) { ?>
             <tr>
-                <td>Berglunds snabbköp</td>
-                <td>Christina Berglund</td>
-                <td>Sweden</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="total_sale">Total</td>
+                <td><?php echo '₱'. asPesos($row['total']) ?></td>
             </tr>
-            <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
+            <?php }}else{
+                        $date_from;
+                        $date_to;
+                        $total =  mysqli_query($conn, "SELECT SUM(total) as total from sale_transaction");
+                        while ($row = mysqli_fetch_array($total)) {?>
+                         <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="total_sale">Total</td>
+                <td><?php echo '₱'. asPesos($row['total']) ?></td>
             </tr>
-            <tr>
-                <td>Ernst Handel</td>
-                <td>Roland Mendel</td>
-                <td>Austria</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Island Trading</td>
-                <td>Helen Bennett</td>
-                <td>UK</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Königlich Essen</td>
-                <td>Philip Cramer</td>
-                <td>Germany</td>
-                <td>Königlich Essen</td>
-                <td>Philip Cramer</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Laughing Bacchus Winecellars</td>
-                <td>Yoshi Tannamuri</td>
-                <td>Canada</td>
-                <td>Laughing Bacchus Winecellars</td>
-                <td>Yoshi Tannamuri</td>
-                <td>Canada</td>
-            </tr>
-            <tr>
-                <td>Magazzini Alimentari Riuniti</td>
-                <td>Giovanni Rovelli</td>
-                <td>Italy</td>
-                <td>Laughing Bacchus Winecellars</td>
-                <td>Yoshi Tannamuri</td>
-                <td>Canada</td>
-            </tr>
-            <tr>
-                <td>North/South</td>
-                <td>Simon Crowther</td>
-                <td>UK</td>
-                <td>Paris spécialités</td>
-                <td>Marie Bertrand</td>
-                <td>France</td>
-            </tr>
-            <tr>
-                <td>Paris spécialités</td>
-                <td>Marie Bertrand</td>
-                <td>France</td>
-                <td>North/South</td>
-                <td>Simon Crowther</td>
-                <td>UK</td>
-            </tr>
+            <?php }} ?>
+            </tbody>
         </table>
     </div>
     <script>

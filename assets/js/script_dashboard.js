@@ -7,17 +7,19 @@ $(document).ready(function () {
     success: function (result) {
       let value = JSON.parse(result);
       //   console.log(value[0].year)
-      let year = [];
-      let month = [];
+      let arryear = [];
+      let arrmonth = [];
       let total = [0,0,0,0,0,0,0,0,0,0,0,0];
+      console.log(result);
       for (let index = 0; index < value.length; index++) {
-        year.push(value[index].year);
-        month.push(value[index].month);
-      }
+        let month = value[index].month;
+        arryear.push(value[index].year);
+        arrmonth.push(value[index].month);
 
-      for (let index = 0; index < month.length; index++) {
-        total[month[index]] = month[index]
+        total[month-1] = value[index].total
+        
       }
+      console.log(total)
 
       new Chart(ctx, {
         type: "bar",

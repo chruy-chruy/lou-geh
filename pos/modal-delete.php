@@ -5,8 +5,10 @@
 
               <!-- Modal Header -->
               <div class="modal-header">
-                  <h4 class="modal-title" style="color: red; font-weight: bold;">
-                      Remove <?php echo $row['product_name'];?></h4>
+                 <h4>Remove <?php echo $row['product_name'];?></h4>
+                 <h4 class="modal-title" style="color: red; font-weight: bold;">
+                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i></h4>
+                 <h4 class="modal-title" style="color: red; font-weight: bold;">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
 
@@ -26,7 +28,8 @@
                       </div>
                       <div class="col-12">
                           <label class="form-label" style="color: black; font-weight: bold;">Are you sure want to
-                              remove</label>
+                              remove </label>
+                              <br>
                           <span style="color: red; font-weight: bold;"><?php echo $row['product_name'];?>
                               Product Code:<?php echo $row['item_number'];?></label></span>?
                       </div>

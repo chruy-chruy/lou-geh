@@ -2,8 +2,8 @@
 <nav class="nav bg-white">
     <ul class="nav__list">
         <li class="nav__link nav__logo">
-            <img src="../assets/images/logo.png" alt="">
-            <span>SAVESEGROW PIMS</span>
+            <!-- <img src="../assets/images/logo.png" alt=""> -->
+            <span>Lou - Geh</span>
         </li>
 
         <!-- <li class="nav__link <?php if ($page == 'Dashboard') {echo 'nav__active';} ?>">

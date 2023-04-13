@@ -32,7 +32,12 @@
                           <br>
                           <input class="modal-input" type="number" id="amount" name="amount"
                               style=" width: 100%; text-align:center;" required>
+                      </div> 
+                      <div class="col-12">
+                      <label class="form-label" style="font-size:15px;"> Print Receipt? 
+                      <input type="checkbox" name="print" class="checkmarkss" style=" transform : scale(1.2);"></label>
                       </div>
+
               </div>
 
               <!-- Modal footer -->

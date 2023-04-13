@@ -4,8 +4,29 @@ include "../db_conn.php";
 if(isset($_GET['message'])){
     $message = $_GET['message'];
     echo "<script type='text/javascript'>alert('$message');</script>";
-  
   }
+
+//   if(($_GET['date_from'] && $_GET['date_to']) !== null){
+//     $date_from = $_GET['date_from'];
+//     $date_to = $_GET['date_to'];
+//   }
+if(isset($_GET['date_from']) && isset($_GET['date_to'])){
+;
+
+            
+        if($_GET['date_to'] == null){
+            $date_from = $_GET['date_from'];
+            $date_to = $_GET['date_to'];
+        }else{
+            $date_from = $_GET['date_from'];
+            $date_to = $_GET['date_to'];
+        }
+    
+}else{
+    $date_from ;
+    $date_to;
+}
+
   function asPesos($value) {
     if ($value<0) return "-".asPesos(-$value);
     return  number_format($value, 0);
@@ -13,23 +34,45 @@ if(isset($_GET['message'])){
  ?>
 
 <?php include "../includes/head.php";?>
+<style>
 
+button {
+            padding: 10px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            background-color: #1f9103;
+            color: rgb(241, 241, 241);
+
+        }
+
+        .hidden-print {
+            /* text-align: center; */
+            float: left;
+            position: fixed;
+            margin-left: 100px;
+            overflow: visible;
+        }
+</style>
 <main>
     <div class="card">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <h5 class="m-0">Sale</h5>
-
-            <!-- <div class="dropdown">
-                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    New Transaction
-                </a>
-
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="add-sale-old.php">Old Customer</a></li>
-                    <li><a class="dropdown-item" href="add-sale-new.php">New Customer</a></li>
-                </ul>
-            </div> -->
+                <div> 
+                    <form action="index.php">
+                   <input type="date" type="date"  onchange="dateFilter()" name="date_from" id="" value="<?php echo $date_from ?>" > — 
+                  <input type="date" name="date_to" id="" onchange="dateFilter()" value="<?php echo $date_to ?>">
+                  <button hidden type="submit" id="submit" class="btn btn-primary"></button>
+                  </form>
+            </div>
+            <div>
+                <form action="print.php" method="post" target="_blank" >
+                <input hidden type="date" type="date"  onchange="dateFilter()" name="date_from" id="" value="<?php echo $date_from ?>" >
+                  <input hidden type="date" name="date_to" id="" onchange="dateFilter()" value="<?php echo $date_to ?>">
+                <button class="Button Button--outline" onclick="printDiv()"><i class="gg-printer"></i></button>
+                </form></div>
         </div>
         <div class="card-body">
 
@@ -46,7 +89,34 @@ if(isset($_GET['message'])){
                 </thead>
                 <tbody>
                     <?php
-                    $squery =  mysqli_query($conn, "SELECT * from sale_transaction");
+                    if(isset($_GET['date_from']) && isset($_GET['date_to'])){
+                        if($_GET['date_to'] == null){
+                            $date_from = $_GET['date_from'];
+                            $date_to =date("Y-m-d");
+                        }else{
+                            $date_from = $_GET['date_from'];
+                            $date_to = $_GET['date_to'];
+                        }
+
+                        $squery =  mysqli_query($conn, "SELECT * from sale_transaction WHERE created_at BETWEEN '$date_from' AND '$date_to' ");
+                        while ($row = mysqli_fetch_array($squery)) {
+                            ?>
+                    <tr>
+                        <td><?php echo $row['transaction_no'] ?></td>
+                        <td><?php echo $row['customer_name'] ?></td>
+                        <td><?php echo $row['total'] ?></td>
+                        <td><?php echo date("l, F j Y g:i A", strtotime($row["created_at"])); ?></td>
+                        <td>
+                            <div class="btn btn-secondary btn-sm" data-toggle="modal"
+                                data-target="#view_<?php echo $row['transaction_no'] ?>">View</div>
+                        </td>
+                    </tr>
+                    <?php  include "modal-view.php"; ?>
+                    <?php }} else{
+                        $date_from;
+                        $date_to;
+
+                           $squery =  mysqli_query($conn, "SELECT * from sale_transaction");
                     while ($row = mysqli_fetch_array($squery)) {
                     ?>
                     <tr>
@@ -60,7 +130,7 @@ if(isset($_GET['message'])){
                         </td>
                     </tr>
                     <?php  include "modal-view.php"; ?>
-                    <?php }?>
+                    <?php }} ?>
                 </tbody>
             </table>
         </div>
@@ -68,7 +138,13 @@ if(isset($_GET['message'])){
 </main>
 </body>
 </div>
-
+<script>
+        function dateFilter() {
+            document.getElementById("submit").click()
+            
+        }
+        
+    </script>
 </html>
 <script src="../assets/js/table.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

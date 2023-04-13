@@ -27,7 +27,7 @@
      <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
      <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
-     <title>SAVESEGROW Point of Sale System</title>
+     <title> Point of Sale System</title>
  </head>
  
  <body>

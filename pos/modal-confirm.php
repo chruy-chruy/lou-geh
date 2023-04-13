@@ -3,9 +3,8 @@ session_start();
 include "../db_conn.php";
 $total = $_POST['total'];
 $amount = $_POST['amount'];
-$print = $_POST['print'];
 $change = $amount-$total;
-
+;
 if ($_POST['customer'])
 {$customer = ucwords($_POST['customer']);}
 else $customer = "Walk-In";
@@ -47,13 +46,9 @@ echo
 " total: ".$total. 
 " amount: ".$amount. 
 " customer: ".$customer. 
-" change: ".$change. 
-" print: ".$print;
+" change: ".$change;
 
 
-if($print == 'on'){
-    header("location:receipt.php?transaction_id=$last_id");
-}else{
-    header("location:index.php?message=Success Order");
-}
+
+// header("location:receipt.php?transaction_id=$last_id");
 ?>

@@ -1,7 +1,8 @@
 <?php
 session_start();
 include "../db_conn.php";
-$transaction_id = $_GET['transaction_id'];function asPesos($value) {
+$transaction_id = $_GET['transaction_id'];
+function asPesos($value) {
     if ($value<0) return "-".asPesos(-$value);
     return  number_format($value, 0);
     } 
@@ -18,6 +19,7 @@ $sold_by = $_SESSION['fullName'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice POS</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <link rel="stylesheet" href="../assets/css/receipt.css" />
 </head>
 
