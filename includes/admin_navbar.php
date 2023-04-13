@@ -2,8 +2,8 @@
 <nav class="nav bg-white">
     <ul class="nav__list">
         <li class="nav__link nav__logo">
-            <!-- <img src="../assets/images/logo.png" alt=""> -->
-            <span>Lou - Geh</span>
+            <img src="../assets/images/logo.png" alt="">
+            <span>SAVESEGROW POS</span>
         </li>
 
         <!-- <li class="nav__link <?php if ($page == 'Dashboard') {echo 'nav__active';} ?>">
@@ -27,7 +27,7 @@
             </a>
         </li>
 
-        <li class="nav__link <?php if ($page == 'purchase Transaction') {echo 'nav__active';} ?>">
+        <li class="nav__link <?php if ($page == 'Inventory Report') {echo 'nav__active';} ?>">
             <a href="../purchase/">
                 <i class='bx bxs-cart-alt'></i>
                 <span>Inventory Report</span>

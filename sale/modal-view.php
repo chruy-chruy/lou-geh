@@ -3,7 +3,7 @@
   $sql = "SELECT * FROM sale_transaction WHERE transaction_no = $transaction_id";
   $sale_query = mysqli_query($conn, $sql);
   $sale_transaction = mysqli_fetch_array($sale_query);
-  $sold_by = $_SESSION['fullName'];
+  $sold_by = $row['sold_by'];
   ?>
   <link rel="stylesheet" href="../assets/css/receipt.css" />
   <!-- The Modal -->
@@ -20,7 +20,8 @@
                   </button>
               </div>
               <div class="modal-body text-start text-black p-4">
-                  <h6 class="modal-title mb-4" id="exampleModalLabel">Date: <?php echo date("Y/m/d");?>
+                  <h6 class="modal-title mb-4" id="exampleModalLabel">Date:
+                      <?php echo date("l, F j Y g:i A", strtotime($row['created_at']))?>
                       <br>
                       Customer: <?php if ($sale_transaction['customer_name']){echo $sale_transaction['customer_name'];}
                       else echo "Walk-In" ?>
@@ -71,7 +72,9 @@
                       </strong> </p>
               </div>
               <div class="modal-footer">
-
+                  <button type="button" class="btn btn-primary"><a
+                          href="../pos/receipt.php?transaction_id=<?php echo $transaction_id?>"
+                          style="color:white;">Print</a></button>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
           </div>

@@ -35,44 +35,47 @@ if(isset($_GET['date_from']) && isset($_GET['date_to'])){
 
 <?php include "../includes/head.php";?>
 <style>
-
 button {
-            padding: 10px;
-            background-color: transparent;
-            background-repeat: no-repeat;
-            cursor: pointer;
-            border-radius: 10px;
-            border: none;
-            background-color: #1f9103;
-            color: rgb(241, 241, 241);
+    padding: 10px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background-color: #1f9103;
+    color: rgb(241, 241, 241);
 
-        }
+}
 
-        .hidden-print {
-            /* text-align: center; */
-            float: left;
-            position: fixed;
-            margin-left: 100px;
-            overflow: visible;
-        }
+.hidden-print {
+    /* text-align: center; */
+    float: left;
+    position: fixed;
+    margin-left: 100px;
+    overflow: visible;
+}
 </style>
 <main>
     <div class="card">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <h5 class="m-0">Sale</h5>
-                <div> 
-                    <form action="index.php">
-                   <input type="date" type="date"  onchange="dateFilter()" name="date_from" id="" value="<?php echo $date_from ?>" > — 
-                  <input type="date" name="date_to" id="" onchange="dateFilter()" value="<?php echo $date_to ?>">
-                  <button hidden type="submit" id="submit" class="btn btn-primary"></button>
-                  </form>
+            <div>
+                <form action="index.php">
+                    <input type="date" type="date" onchange="dateFilter()" name="date_from" id=""
+                        value="<?php echo $date_from ?>"> —
+                    <input type="date" name="date_to" id="" onchange="dateFilter()" value="<?php echo $date_to ?>">
+                    <button hidden type="submit" id="submit" class="btn btn-primary"></button>
+                </form>
             </div>
             <div>
-                <form action="print.php" method="post" target="_blank" >
-                <input hidden type="date" type="date"  onchange="dateFilter()" name="date_from" id="" value="<?php echo $date_from ?>" >
-                  <input hidden type="date" name="date_to" id="" onchange="dateFilter()" value="<?php echo $date_to ?>">
-                <button class="Button Button--outline" onclick="printDiv()"><i class="gg-printer"></i></button>
-                </form></div>
+                <form action="print.php" method="post" target="_blank">
+                    <input hidden type="date" type="date" onchange="dateFilter()" name="date_from" id=""
+                        value="<?php echo $date_from ?>">
+                    <input hidden type="date" name="date_to" id="" onchange="dateFilter()"
+                        value="<?php echo $date_to ?>">
+                    <button class="Button Button--outline" onclick="printDiv()"><i class="gg-printer"></i></button>
+                </form>
+            </div>
         </div>
         <div class="card-body">
 
@@ -98,7 +101,7 @@ button {
                             $date_to = $_GET['date_to'];
                         }
 
-                        $squery =  mysqli_query($conn, "SELECT * from sale_transaction WHERE created_at BETWEEN '$date_from' AND '$date_to' ");
+                        $squery =  mysqli_query($conn, "SELECT * from sale_transaction WHERE created_at BETWEEN '$date_from' AND '$date_to 23:59:59.999' ");
                         while ($row = mysqli_fetch_array($squery)) {
                             ?>
                     <tr>
@@ -139,12 +142,12 @@ button {
 </body>
 </div>
 <script>
-        function dateFilter() {
-            document.getElementById("submit").click()
-            
-        }
-        
-    </script>
+function dateFilter() {
+    document.getElementById("submit").click()
+
+}
+</script>
+
 </html>
 <script src="../assets/js/table.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

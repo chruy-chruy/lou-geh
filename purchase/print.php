@@ -25,54 +25,64 @@ function asPesos($value) {
         <br>
         09123456789
     </h5>
-    <h1>Sales Report</h1>
+    <h1>Inventory Report</h1>
     <div id="printBtn" class="hidden-print">
         <button class="Button Button--outline" onclick="printDiv()"><i class="gg-printer"></i></button>
     </div>
     <div id="printableTable">
         <table id="customers">
+            <div class="date">Date: <?php echo date("Y-m-d")?></div>
             <thead>
                 <tr>
-                    <th>Pos No.</th>
-                    <th>Customer Name</th>
+                    <th>Product Sale No.</th>
+                    <th>Product</th>
+                    <th>Product Code</th>
+                    <th>Qty</th>
+                    <th>Selling Price</th>
                     <th>Date Order</th>
-                    <th>Sold By</th>
+                    <th>Order No.</th>
                     <th>Total Price</th>
                 </tr>
             </thead>
             <tbody>
                 <?php      
             if(isset($date_from) && isset($date_to)){
-                             if($date_to == null){
-                                  $date_from =$_POST['date_from'];
-                                    $date_to =date("Y-m-d");
-                            }else{
-                                 $date_from =$_POST['date_from'];
-                                $date_to = $_POST['date_to'];
+                        if($date_to == null){
+                            $date_from =$_POST['date_from'];
+                            $date_to =date("Y-m-d");
+                        }else{
+                            $date_from =$_POST['date_from'];
+                            $date_to = $_POST['date_to'];
                         }
 
-                        $squery =  mysqli_query($conn, "SELECT * from sale_transaction WHERE created_at BETWEEN '$date_from' AND '$date_to  23:59:59.999' ");
+                        $squery =  mysqli_query($conn,"SELECT * FROM product_sale WHERE created_at >= '$date_from' and created_at <= '$date_to 23:59:59.999'");
                         while ($row = mysqli_fetch_array($squery)) {
                             ?>
                 <tr>
-                    <td><?php echo $row['transaction_no'] ?></td>
-                    <td><?php echo $row['customer_name'] ?></td>
-                    <td><?php echo $row['created_at'] ?></td>
-                    <td><?php echo $row['sold_by'] ?></td>
-                    <td><?php echo '₱'. asPesos($row['total']) ?></td>
+                    <td><?php echo $row['product_sale_number'] ?></td>
+                    <td><?php echo $row['product_name'] ?></td>
+                    <td><?php echo $row['item_number'] ?></td>
+                    <td><?php echo $row['quantity'] ?></td>
+                    <td><?php echo '₱'. asPesos($row['price']) ?></td>
+                    <td><?php echo date("l, F j Y g:i A", strtotime($row['created_at'])) ?></td>
+                    <td><?php echo $row['transaction_number'] ?></td>
+                    <td><?php echo '₱'. asPesos($row['total_price']) ?></td>
                 </tr>
                 <?php }}else{
                         $date_from;
                         $date_to;
 
-                           $squery =  mysqli_query($conn, "SELECT * from sale_transaction");
-                    while ($row = mysqli_fetch_array($squery)) {
+                        $squery =  mysqli_query($conn,"SELECT * FROM product_sale");
+                        while ($row = mysqli_fetch_array($squery)) {
                 ?> <tr>
-                    <td><?php echo $row['transaction_no'] ?></td>
-                    <td><?php echo $row['customer_name'] ?></td>
-                    <td><?php echo $row['created_at'] ?></td>
-                    <td><?php echo $row['sold_by'] ?></td>
-                    <td><?php echo '₱'. asPesos($row['total']) ?></td>
+                    <td><?php echo $row['product_sale_number'] ?></td>
+                    <td><?php echo $row['product_name'] ?></td>
+                    <td><?php echo $row['item_number'] ?></td>
+                    <td><?php echo $row['quantity'] ?></td>
+                    <td><?php echo '₱'. asPesos($row['price']) ?></td>
+                    <td><?php echo date("l, F j Y g:i A", strtotime($row['created_at'])) ?></td>
+                    <td><?php echo $row['transaction_number'] ?></td>
+                    <td><?php echo '₱'. asPesos($row['total_price']) ?></td>
                 </tr>
 
 
@@ -82,12 +92,15 @@ function asPesos($value) {
                             $date_from;
                             $date_to = date("Y-m-d");
                     }else{
-                         $date_from;
-                        $date_to;
+                        $date_from ;
+                            $date_to;
                         }
-                        $total =  mysqli_query($conn, "SELECT SUM(total) as total from sale_transaction WHERE created_at BETWEEN '$date_from' AND '$date_to  23:59:59.999' ");
+                        $total =  mysqli_query($conn, "SELECT SUM(total_price) as total from product_sale WHERE created_at BETWEEN '$date_from' AND '$date_to 23:59:59.999' ");
             while ($row = mysqli_fetch_array($total)) { ?>
                 <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -97,7 +110,7 @@ function asPesos($value) {
                 <?php }}else{
                         $date_from;
                         $date_to;
-                        $total =  mysqli_query($conn, "SELECT SUM(total) as total from sale_transaction");
+                        $total =  mysqli_query($conn, "SELECT SUM(total_price) as total from product_sale");
                         while ($row = mysqli_fetch_array($total)) {?>
                 <tr>
                     <td></td>
