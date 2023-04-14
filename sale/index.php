@@ -1,6 +1,7 @@
 <?php 
 $page = 'Sale Transaction';
 include "../db_conn.php";
+date_default_timezone_set('Asia/Singapore');
 if(isset($_GET['message'])){
     $message = $_GET['message'];
     echo "<script type='text/javascript'>alert('$message');</script>";
@@ -13,7 +14,6 @@ if(isset($_GET['message'])){
 if(isset($_GET['date_from']) && isset($_GET['date_to'])){
 ;
 
-            
         if($_GET['date_to'] == null){
             $date_from = $_GET['date_from'];
             $date_to = $_GET['date_to'];
@@ -23,7 +23,7 @@ if(isset($_GET['date_from']) && isset($_GET['date_to'])){
         }
     
 }else{
-    $date_from ;
+    $date_from;
     $date_to;
 }
 
@@ -95,7 +95,8 @@ button {
                     if(isset($_GET['date_from']) && isset($_GET['date_to'])){
                         if($_GET['date_to'] == null){
                             $date_from = $_GET['date_from'];
-                            $date_to =date("Y-m-d");
+                            $date_to = date("Y-m-d");
+                          
                         }else{
                             $date_from = $_GET['date_from'];
                             $date_to = $_GET['date_to'];

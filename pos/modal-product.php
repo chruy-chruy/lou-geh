@@ -34,24 +34,36 @@
                       <div class="col-12">
                           <label class="form-label" style="color: black; font-weight: bold; "> Stock Left :</label>
                           <span style="color:red;font-weight: bold;"><?php echo $row['quantity'];?></span>
-                          <input hidden type="text" id="stock" name="stock" value="<?php echo $row['quantity'];?>"
-                              required>
+                          <input hidden type="text" id="stock_<?php echo $row['item_number'];?>" name="stock"
+                              value="<?php echo $row['quantity'];?>" required>
                       </div>
 
                       <div class="col-12">
                           <label class="form-label" style="color: black; font-weight: bold;"> Quantity :</label>
                           <br>
-                          <input class="modal-input" type="number" id="quantity" name="quantity"
-                              style="width: 100%; text-align:center;" required>
+                          <input class="modal-input" type="number" id="quantity_<?php echo $row['item_number'];?>"
+                              name="quantity" style="width: 100%; text-align:center;" required>
                       </div>
               </div>
 
               <!-- Modal footer -->
               <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary">Add</button>
+                  <button type="submit" class="btn btn-primary" id="add_<?php echo $row['item_number'];?>"
+                      disabled>Add</button>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
               </form>
           </div>
       </div>
   </div>
+  <script>
+$("#quantity_<?php echo $row['item_number'];?>").keyup(function() {
+    let stock = document.getElementById("stock_<?php echo $row['item_number'];?>").value
+    let quantity = document.getElementById('quantity_<?php echo $row['item_number'];?>').value
+    if (parseInt(stock) >= quantity && 0 < quantity) {
+        document.getElementById('add_<?php echo $row['item_number'];?>').disabled = false
+    } else {
+        document.getElementById('add_<?php echo $row['item_number'];?>').disabled = true
+    }
+})
+  </script>

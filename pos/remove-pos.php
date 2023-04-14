@@ -19,5 +19,5 @@ mysqli_query($conn, $sql);
 $sql2 = "DELETE FROM `pos` WHERE pos_id = $pos_id";
 mysqli_query($conn, $sql2); 
     
-header("location:index.php?message=Delete Succes");
+header("location:index.php?message=Remove Product Succes!");
 ?>

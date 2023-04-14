@@ -72,11 +72,14 @@
                       </strong> </p>
               </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-primary"><a
-                          href="../pos/receipt.php?transaction_id=<?php echo $transaction_id?>"
-                          style="color:white;">Print</a></button>
+                  <button type="button" class="btn btn-primary" onclick="print()">Print</button>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
           </div>
       </div>
   </div>
+  <script>
+function print() {
+    var printWindow = window.open('../pos/receipt.php?transaction_id=<?php echo $transaction_id;?>');
+}
+  </script>

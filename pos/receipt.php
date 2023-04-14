@@ -154,14 +154,20 @@ $sold_by = $_SESSION['fullName'];
     </div>
     <!--End Invoice-->
 
-    <button style=" margin-top: 5mm;" id="btnPrint" class="hidden-print">Print</button>
-    <a href="index.php"><button style=" margin-top: 5mm;" id="btnBack" class="hidden-print">Done</button></a>
+    <!-- <button style=" margin-top: 5mm;" id="btnPrint" class="hidden-print">Print</button>
+    <a href="index.php"><button style=" margin-top: 5mm;" id="btnBack" class="hidden-print">Done</button></a> -->
 </body>
 <script>
-const $btnPrint = document.querySelector("#btnPrint");
-$btnPrint.addEventListener("click", () => {
-    window.print();
-});
+// const $btnPrint = document.querySelector("#btnPrint");
+// $btnPrint.addEventListener("click", () => {
+//     window.print();
+// });
+window.print();
+window.onafterprint = window.close;;
+
+// function back() {
+//     window.location.replace("index.php?message=Success Order!");
+// }
 </script>
 
 </html>

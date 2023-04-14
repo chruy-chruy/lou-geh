@@ -52,8 +52,16 @@ echo
 
 
 if($print == 'on'){
-    header("location:receipt.php?transaction_id=$last_id");
-}else{
-    header("location:index.php?message=Success Order");
-}
+    // header("location:receipt.php?transaction_id=$last_id");
 ?>
+<script>
+var printWindow = window.open('./receipt.php?transaction_id=<?php echo $last_id;?>');
+back();
+
+function back() {
+    window.location.replace("index.php?message=Success Order!");
+}
+</script>
+<?php }else{
+    header("location:index.php?message=Success Order!");
+}?>

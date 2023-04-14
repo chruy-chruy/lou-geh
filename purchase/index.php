@@ -1,6 +1,7 @@
 <?php 
 $page = 'Inventory Report';
 include "../db_conn.php";
+date_default_timezone_set('Asia/Singapore');
 if(isset($_GET['message'])){
       $message = $_GET['message'];
       echo "<script type='text/javascript'>alert('$message');</script>";
@@ -78,14 +79,13 @@ button {
             <table id="table" class="table">
                 <thead>
                     <tr>
-                        <th>Product Sale No.</th>
+                        <th>ID No.</th>
                         <th>Product</th>
                         <th>Product Code</th>
                         <th>Qty</th>
                         <th>Selling Price</th>
                         <th>Total Price</th>
-                        <th>Date Order</th>
-                        <th>Order No.</th>
+                        <th>Date</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -110,10 +110,9 @@ button {
                         <td><?php echo $row['product_name'] ?></td>
                         <td><?php echo $row['item_number'] ?></td>
                         <td><?php echo $row['quantity'] ?></td>
-                        <td><?php echo $row['price'] ?></td>
-                        <td><?php echo $row['total_price'] ?></td>
+                        <td><?php echo  '₱'. asPesos($row['price']) ?></td>
+                        <td><?php echo '₱'. asPesos($row['total_price']) ?></td>
                         <td><?php echo date("l, F j Y g:i A", strtotime($row['created_at'])) ?></td>
-                        <td><?php echo $row['transaction_number'] ?></td>
                         <td>
                             <div class="btn btn-secondary btn-sm" data-toggle="modal"
                                 data-target="#view_<?php echo $row['product_sale_number'] ?>">View</div>
@@ -131,10 +130,9 @@ button {
                         <td><?php echo $row['product_name'] ?></td>
                         <td><?php echo $row['item_number'] ?></td>
                         <td><?php echo $row['quantity'] ?></td>
-                        <td><?php echo $row['price'] ?></td>
-                        <td><?php echo $row['total_price'] ?></td>
+                        <td><?php echo '₱'. asPesos($row['price']) ?></td>
+                        <td><?php echo '₱'. asPesos($row['total_price']) ?></td>
                         <td><?php echo date("l, F j Y g:i A", strtotime($row['created_at'])) ?></td>
-                        <td><?php echo $row['transaction_number'] ?></td>
                         <td>
                             <div class="btn btn-secondary btn-sm" data-toggle="modal"
                                 data-target="#view_<?php echo $row['product_sale_number'] ?>">View</div>

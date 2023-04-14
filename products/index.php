@@ -24,10 +24,9 @@ if (isset($_GET['message'])) {
                         <th>Item Number</th>
                         <th>Name</th>
                         <th>Brand</th>
-                        <th>Quantity</th>
+                        <th>Stocks Left</th>
                         <th>Cost Per Unit</th>
                         <th>Selling Price</th>
-                        <th>Revenue</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -46,7 +45,6 @@ if (isset($_GET['message'])) {
                         <td><?php echo $row['quantity']; ?></td>
                         <td><?php echo $row['price']; ?></td>
                         <td><?php echo $row['selling_price']; ?></td>
-                        <td><?php echo $row['revenue']; ?></td>
                         <td>
                             <a href="edit-product.php?id=<?php echo $row['item_number']; ?>">
                                 <div class="btn btn-secondary btn-sm">View</div>

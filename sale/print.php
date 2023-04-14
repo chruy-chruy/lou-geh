@@ -2,6 +2,7 @@
 include '../db_conn.php';
 $date_from = $_POST['date_from'];
 $date_to = $_POST['date_to'];
+date_default_timezone_set('Asia/Singapore');
 function asPesos($value) {
     if ($value<0) return "-".asPesos(-$value);
     return  number_format($value, 0);

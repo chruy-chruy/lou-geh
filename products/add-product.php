@@ -1,5 +1,5 @@
 <?php 
-$page = 'Item';
+$page = 'Product List';
 include "../db_conn.php";
  ?>
 
@@ -12,10 +12,10 @@ include "../db_conn.php";
         <div class="card-body">
 
             <form class="row g-3" action="create.php" method="post">
-                <div class="col-md-6">
-                    <label for="inputAddress" class="form-label">Supplier</label>
-                    <input type="text" class="form-control" id="supplier" name="supplier" required>
-                </div>
+                <!-- <div class="col-md-6"> -->
+                <!-- <label for="inputAddress" class="form-label">Supplier</label> -->
+                <input hidden type="text" class="form-control" id="supplier" name="supplier">
+                <!-- </div> -->
 
                 <div class="col-6">
                     <label class="form-label">Product Name</label>
@@ -32,22 +32,23 @@ include "../db_conn.php";
                     <input type="number" class="form-control" id="quantity" name="quantity" required>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="" class="form-label">Price Per Unit</label>
                     <input type="number" step=0.01 class="form-control" id="price" name="price" required>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="" class="form-label">Selling Price</label>
                     <input type="number" step=0.01 class="form-control" id="selling_price" name="selling_price"
                         required>
                 </div>
 
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <label for="" class="form-label">Expected Revenue</label>
                     <input type="number" step=0.01 class="form-control" id="revenue" name="revenue" hidden required>
                     <label class="form-control bg-light" id="revenue2">0</label>
-                </div>
+                </div> -->
+                <input hidden type="number" step=0.01 class="form-control" id="revenue" name="revenue" hidden>
 
                 <div class="col-md-12">
                     <label for="" class="form-label">Product Description</label>

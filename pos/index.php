@@ -7,19 +7,20 @@ $page = 'POS'; ?>
     return '₱' . number_format($value, 2);
     } 
     
-    if (isset($_GET['message'])) {
-        $message = $_GET['message'];
-        echo "<script type='text/javascript'>alert('$message');</script>";
-    }?>
-
-<main>
-
+?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<main> <?php 
+if (isset($_GET['message'])) {
+     $message = $_GET['message'];?>
+    <div class="alert-boxs success_alert"><?php echo $message ?></div>
+    <script>
+    $("div.success_alert").fadeIn(300).delay(2000).fadeOut(400);
+    </script>
+    <?php } ?>
     <div class="row mt-4 g-3">
-
         <div class="col-lg-7 col-md-12">
             <div class="card ">
                 <div class="card-header">
-
                     <div style="font-weight: bold;padding: 5px; font-size:20px;">
                         Products
                         <input class="searchp" type='text' id='searchp' placeholder="Search Product" />
@@ -29,13 +30,14 @@ $page = 'POS'; ?>
                     <div class="row g-3 mb-3">
                         <?php $squery = mysqli_query($conn,"SELECT * from items Where del_status != 'deleted'");
                         while ($row = mysqli_fetch_array($squery)) { ?>
-                        <div class="col-lg-3 col-md-6 products_list">
+                        <div class="col-lg-3 col-md-6 show">
                             <div class="card dashboard__card">
                                 <!-- Trigger/Open The Modal -->
                                 <button class="products button1" data-toggle="modal"
                                     data-target="#edit_<?php echo $row['item_number'];?>">
                                     <div class="card-body">
-                                        <div class="row" style="font-weight: bold;  font-family: Poppins, sans-serif">
+                                        <div class="row products_list"
+                                            style="font-weight: bold;  font-family: Poppins, sans-serif">
                                             <?php echo $row['name'];?>
                                         </div>
                                     </div>
@@ -97,8 +99,13 @@ $page = 'POS'; ?>
                     </span>
                 </div>
                 <div>
+                    <?php if($row['total'] > 0) {?>
                     <button type="submit" class="btn btn-primary" data-toggle="modal"
                         data-target="#order">ORDER</button>
+                    <?php } else{?>
+                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#order"
+                        disabled>ORDER</button>
+                    <?php }?>
                     <?php  include "modal-order.php"; ?>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>

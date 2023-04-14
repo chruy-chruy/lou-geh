@@ -42,6 +42,7 @@ a {
   border-radius: 15px;
   background: #fdfdfd;
   width: 450px;
+  box-shadow: 5px 5px #246b51;
 }
 .login__logo {
   width: 90px;
@@ -190,7 +191,7 @@ th {
   background-color: #ffffff7c;
   color: black;
   border: 1px solid #4f9645;
-  box-shadow:5px 5px #4e96455b;
+  box-shadow: 5px 5px #4e96455b;
 }
 
 .button1:hover {
@@ -213,74 +214,69 @@ th {
   border-bottom: 2px solid green;
   outline: none;
 }
-  /* print btn */
-  .gg-printer {
-    background:
-        linear-gradient(to left,
-            currentColor 5px, transparent 0) no-repeat 0 10px/6px 2px,
-        linear-gradient(to left,
-            currentColor 5px, transparent 0) no-repeat 14px 10px/6px 2px,
-        linear-gradient(to left,
-            currentColor 5px, transparent 0) no-repeat 4px 4px/2px 2px;
-    box-sizing: border-box;
-    position: relative;
-    display: block;
-    transform: scale(var(--ggs, 1));
-    width: 24px;
-    height: 14px;
-    border: 2px solid transparent;
-    border-bottom: 0;
-    box-shadow:
-        inset 0 2px 0,
-        inset 2px 2px 0,
-        inset -2px 2px 0,
-        inset -2px 2px 0
+/* print btn */
+.gg-printer {
+  background: linear-gradient(to left, currentColor 5px, transparent 0)
+      no-repeat 0 10px/6px 2px,
+    linear-gradient(to left, currentColor 5px, transparent 0) no-repeat 14px
+      10px/6px 2px,
+    linear-gradient(to left, currentColor 5px, transparent 0) no-repeat 4px 4px/2px
+      2px;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 24px;
+  height: 14px;
+  border: 2px solid transparent;
+  border-bottom: 0;
+  box-shadow: inset 0 2px 0, inset 2px 2px 0, inset -2px 2px 0, inset -2px 2px 0;
 }
 
 .gg-printer::after,
 .gg-printer::before {
-    content: "";
-    display: block;
-    box-sizing: border-box;
-    position: absolute;
-    width: 12px;
-    border: 2px solid;
-    left: 4px
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 12px;
+  border: 2px solid;
+  left: 4px;
 }
 
 .gg-printer::before {
-    height: 6px;
-    top: -4px
+  height: 6px;
+  top: -4px;
 }
 
 .gg-printer::after {
-    height: 8px;
-    top: 8px
+  height: 8px;
+  top: 8px;
 }
 
 /* print */
 
 /* date picker */
-input[type="date"]{
-    background-color: #3eb489;
-    padding: 8px;
-    /* transform: translate(-50%,-50%); */
-    font-family: "Roboto Mono",monospace;
-    color: #ffffff;
-    font-size: 14px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
+input[type="date"] {
+  background-color: #3eb489;
+  padding: 8px;
+  /* transform: translate(-50%,-50%); */
+  font-family: "Roboto Mono", monospace;
+  color: #ffffff;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
 }
-::-webkit-calendar-picker-indicator{
-    background-color: #ffffff;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 3px;
+::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
 }
 /* date picker */
 
-.searchp{
+.searchp {
   float: right;
   padding: 5px;
   border-radius: 10px;
@@ -289,4 +285,22 @@ input[type="date"]{
 }
 .searchp:hover {
   background-color: #79e29931;
+}
+.alert-boxs {
+  padding: 12px;
+  margin: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+}
+.success_alert {
+  color: #ffffff;
+  background-color: #3eb489;
+  border-color: #d6e9c6;
+  display: block;
+  position: absolute;
+  top: 75px;
+  right: 20px;
+  width: 210px;
+  border-radius: 30px 30px 0px 30px;
 }

@@ -25,5 +25,5 @@ mysqli_query($conn, $sql2);
 // VALUES ('$name','$details','$quantity','$price','$brand','$selling_price','$revenue')";
 
 //  mysqli_query($conn, $sql2);
- header("location:index.php");
+ header("location:index.php?message=Added Product Succes!");
 ?>

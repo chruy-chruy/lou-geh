@@ -65,8 +65,9 @@
         </li>
 
         <div class="nav__link nav__user mt-auto p-3 mb-3">
-            Logged in: <br> <span class="mx-auto"><?php echo $_SESSION['fullName']; ?></span>
+            Welcome : <br> <span class="mx-auto"><?php echo $_SESSION['fullName'] . " (".$_SESSION['role'].")";?></span>
         </div>
+
 
         <li class="nav__link">
             <a href="../log-out.php" class="">

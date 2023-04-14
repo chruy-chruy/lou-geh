@@ -6,6 +6,7 @@ function asPesos($value) {
     if ($value<0) return "-".asPesos(-$value);
     return  number_format($value, 0);
     } 
+    date_default_timezone_set('Asia/Singapore');
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +33,7 @@ function asPesos($value) {
     <div id="printableTable">
         <table id="customers">
             <div class="date">Date: <?php echo date("Y-m-d")?></div>
-            <thead>
+            <thead class="thead">
                 <tr>
                     <th>Product Sale No.</th>
                     <th>Product</th>

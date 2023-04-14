@@ -5,15 +5,15 @@ $("#searchp").keyup(function () {
   /*scans through each element*/
   for (var i = 0; i < $(".products_list").length; i++) {
     /*Makes all elements visible*/
-    $(".products_list:eq(" + i + ")").css("display", "inline-block");
+    $(".show:eq(" + i + ")").css("display", "inline-block");
     /*If it doesn't match the input it is hidden*/
     if (
       $(".products_list:eq(" + i + ")")
         .text()
         .toLowerCase()
-        .indexOf(seterm) < 0
+        .indexOf(seterm.toLowerCase()) < 0
     ) {
-      $(".products_list:eq(" + i + ")").css("display", "none");
+      $(".show:eq(" + i + ")").css("display", "none");
     }
   }
 });
