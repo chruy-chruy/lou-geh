@@ -70,7 +70,9 @@ a {
 }
 
 #datetime {
-  color: #727272;
+  color: #24704a;
+  font-size: 25px;
+  font-weight: bolder;
 }
 
 .nav {

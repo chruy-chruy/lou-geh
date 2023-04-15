@@ -40,6 +40,12 @@
                 <span>Product List</span>
             </a>
         </li>
+        <li class="nav__link <?php if ($page == 'Category') {echo 'nav__active';} ?>">
+            <a href="../category/">
+                <i class='bx bxs-cart-alt'></i>
+                <span>Category</span>
+            </a>
+        </li>
 
         <!-- <li class="nav__link <?php if ($page == 'Supplier') {echo 'nav__active';} ?>">
                     <a href="../suppliers/">

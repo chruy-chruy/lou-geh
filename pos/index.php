@@ -9,7 +9,10 @@ $page = 'POS'; ?>
     
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<main> <?php 
+
+<main>
+    <div style="position:absolute"><span id="datetime"></span></div>
+    <script src="../assets/js/time.js"></script> <?php 
 if (isset($_GET['message'])) {
      $message = $_GET['message'];?>
     <div class="alert-boxs success_alert"><?php echo $message ?></div>
