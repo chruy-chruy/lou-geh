@@ -4,9 +4,9 @@ $page = 'login';
 $headerTitle = 'Login';
 include "db_conn.php";
 
-$sql = "UPDATE `user` SET `username`='admin',`password`='admin' WHERE 'role' ='Admin'";
-
+$sql = "UPDATE `user` SET `username`='admin',`password`='admin' WHERE role = 'Admin'";
 mysqli_query($conn, $sql);
+
 session_start();
 if (isset($_SESSION['id'])) {
   header("Location: pos/");

@@ -9,6 +9,7 @@ $price = ucwords($_POST['price']);
 $brand = ucwords($_POST['brand']);
 $selling_price = ucwords($_POST['selling_price']);
 $revenue = ucwords($_POST['revenue']);
+$category = ucwords($_POST['category']);
 
 // //insert to purchase transaction
 // $sql = "INSERT INTO `purchase_transaction`(`supplier_code`, `item_name`, `barcode`, `details`, `quantity`, `price`) 
@@ -16,8 +17,8 @@ $revenue = ucwords($_POST['revenue']);
 // mysqli_query($conn, $sql);
 
 //insert to items
-$sql2 = "INSERT INTO `items`(`name`, `details`, `quantity`, `price`, `brand`, `selling_price`, `revenue`) 
-VALUES ('$name','$details','$quantity','$price','$brand','$selling_price','$revenue')";
+$sql2 = "INSERT INTO `items`(`name`, `details`, `quantity`, `price`, `brand`, `selling_price`, `revenue`,`category`) 
+VALUES ('$name','$details','$quantity','$price','$brand','$selling_price','$revenue','$category')";
 
  mysqli_query($conn, $sql2);
  header("location:index.php?message=Create Succes");

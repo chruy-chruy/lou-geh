@@ -17,3 +17,8 @@ $("#searchp").keyup(function () {
     }
   }
 });
+// $(document).ready(function () {
+//   $("select_category").change(function () {
+//     console.log("tst");
+//   });
+// });

@@ -25,14 +25,49 @@ if (isset($_GET['message'])) {
             <div class="card ">
                 <div class="card-header">
                     <div style="font-weight: bold;padding: 5px; font-size:20px;">
-                        Products
+                        Category
                         <input class="searchp" type='text' id='searchp' placeholder="Search Product" />
                     </div>
+                    <div class="test" style="font-weight: bold;padding: 5px; font-size:20px;">
+                        <form action="index.php">
+                            <select class="category" name="category" id="select_category"
+                                style="font-weight: bold;padding: 5px; font-size:20px; color:green;">
+                                <?php  if (isset($_GET['category'])) { 
+                                    $category = $_GET['category'];?>
+                                <option hidden selected disabled value=""><?php echo $category ?></option>
+                                <?php } else {?>
+                                <option hidden selected disabled value="">All</option>
+                                <?php }?>
+                                <option value="All">All</option>
+                                <?php 
+                                    $squery =  mysqli_query($conn, "SELECT * from category Where del_status != 'deleted'");
+                                     while ($row = mysqli_fetch_array($squery)) {
+                                        ?>
+                                <option value="<?php echo $row['name'] ?>">
+                                    <?php echo $row['name'] ?></option>
+                                <?php }?>
+                            </select>
+                            <input hidden type="submit" value="sds" id="submit_category">
+                            <script>
+                            $(document).ready(function() {
+                                $("#select_category").change(function() {
+                                    document.getElementById("submit_category").click()
+                                });
+                            });
+                            </script>
+                        </form>
+                    </div>
                 </div>
-                <div class="card-body table-responsive" style="max-width: 100%; height: 700px; overflow: auto;">
+                <div class="card-body table-responsive" style="max-width: 100%; height: 350px; overflow: auto;">
                     <div class="row g-3 mb-3">
-                        <?php $squery = mysqli_query($conn,"SELECT * from items Where del_status != 'deleted'");
-                        while ($row = mysqli_fetch_array($squery)) { ?>
+                        <?php
+                        
+                        if (isset($_GET['category'])) {
+                            $category = $_GET['category'];
+                            if($category == 'All'){
+                                $squery = mysqli_query($conn,"SELECT * from items Where del_status != 'deleted'");
+                                while ($row = mysqli_fetch_array($squery)){                  
+                            ?>
                         <div class="col-lg-3 col-md-6 show">
                             <div class="card dashboard__card">
                                 <!-- Trigger/Open The Modal -->
@@ -48,7 +83,43 @@ if (isset($_GET['message'])) {
                                 <?php  include "modal-product.php"; ?>
                             </div>
                         </div>
-                        <?php }?>
+                        <?php }}else{
+                                $squery = mysqli_query($conn,"SELECT * from items Where category = '$category' AND del_status != 'deleted'");
+                                while ($row = mysqli_fetch_array($squery)){?>
+                        <div class="col-lg-3 col-md-6 show">
+                            <div class="card dashboard__card">
+                                <!-- Trigger/Open The Modal -->
+                                <button class="products button1" data-toggle="modal"
+                                    data-target="#edit_<?php echo $row['item_number'];?>">
+                                    <div class="card-body">
+                                        <div class="row products_list"
+                                            style="font-weight: bold;  font-family: Poppins, sans-serif">
+                                            <?php echo $row['name'];?>
+                                        </div>
+                                    </div>
+                                </button>
+                                <?php  include "modal-product.php"; ?>
+                            </div>
+                        </div>
+                        <?php }}}else{ $squery = mysqli_query($conn,"SELECT * from items Where del_status != 'deleted'");
+                                while ($row = mysqli_fetch_array($squery)){                  
+                            ?>
+                        <div class="col-lg-3 col-md-6 show">
+                            <div class="card dashboard__card">
+                                <!-- Trigger/Open The Modal -->
+                                <button class="products button1" data-toggle="modal"
+                                    data-target="#edit_<?php echo $row['item_number'];?>">
+                                    <div class="card-body">
+                                        <div class="row products_list"
+                                            style="font-weight: bold;  font-family: Poppins, sans-serif">
+                                            <?php echo $row['name'];?>
+                                        </div>
+                                    </div>
+                                </button>
+                                <?php  include "modal-product.php"; ?>
+                            </div>
+                        </div>
+                        <?php }}?>
                     </div>
                 </div>
             </div>
@@ -56,7 +127,7 @@ if (isset($_GET['message'])) {
         </form>
         <div class="col-lg-5 col-md-12">
             <div class="card">
-                <div class="card-body" style="height: 700px; overflow: auto; width:100%; font-size: 15px">
+                <div class="card-body" style="height: 395px; overflow: auto; width:100%; font-size: 15px">
                     <table class="table table-responsive" id="table">
                         <thead>
                             <tr>

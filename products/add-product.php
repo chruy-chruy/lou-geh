@@ -27,6 +27,20 @@ include "../db_conn.php";
                     <input type="text" class="form-control" id="brand" name="brand" required>
                 </div>
 
+                <div class="col-6">
+                    <label class="form-label">Category</label>
+                    <select class="form-control" name="category" id="">
+                        <option disabled hidden value="--" selected>--</option>
+                        <?php 
+   $squery =  mysqli_query($conn, "SELECT * from category Where del_status != 'deleted'");
+         while ($row = mysqli_fetch_array($squery)) {
+           ?>
+                        <option value="<?php echo $row['name'] ?>"><?php echo $row['name'] ?></option>
+                        <?php }?>
+                    </select>
+                    <!-- <input type="text" class="form-control" id="brand" name="brand" required> -->
+                </div>
+
                 <div class="col-md-6">
                     <label for="" class="form-label">Quantity</label>
                     <input type="number" class="form-control" id="quantity" name="quantity" required>

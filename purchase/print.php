@@ -30,6 +30,7 @@ function asPesos($value) {
     <div id="printBtn" class="hidden-print">
         <button class="Button Button--outline" onclick="printDiv()"><i class="gg-printer"></i></button>
     </div>
+
     <div id="printableTable">
         <table id="customers">
             <div class="date">Date: <?php echo date("Y-m-d")?></div>

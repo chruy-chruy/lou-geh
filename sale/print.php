@@ -32,6 +32,7 @@ function asPesos($value) {
     </div>
     <div id="printableTable">
         <table id="customers">
+            <div class="date">Date: <?php echo date("Y-m-d")?></div>
             <thead>
                 <tr>
                     <th>Pos No.</th>

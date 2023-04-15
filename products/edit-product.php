@@ -18,6 +18,7 @@ include "../db_conn.php";
                     <?php $id = $_GET['id'];
    $squery =  mysqli_query($conn, "SELECT * from items Where item_number = $id");
          while ($row = mysqli_fetch_array($squery)) {
+            $category_id = $row['category'];
            ?>
                 </div>
 
@@ -36,6 +37,20 @@ include "../db_conn.php";
                         required>
                 </div>
 
+                <div class="col-6">
+                    <label class="form-label">Category</label>
+                    <select class="form-control" name="category" id="">
+                        <option hidden value="<?php echo $row['category'] ?>" selected><?php echo $category_id ?>
+                        </option>
+
+                        <?php $sql =  mysqli_query($conn, "SELECT * from category Where  del_status != 'deleted'");
+                        while ($category = mysqli_fetch_array($sql)) {?>
+                        <option value="<?php echo $category['name'] ?>"><?php echo $category['name'] ?>
+                        </option>
+                        <?php }?>
+                    </select>
+                    <!-- <input type="text" class="form-control" id="brand" name="brand" required> -->
+                </div>
 
                 <div class="col-md-6">
                     <label for="" class="form-label">Quantity</label>

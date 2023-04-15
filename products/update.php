@@ -8,6 +8,7 @@ $price = ucwords($_POST['price']);
 $brand = ucwords($_POST['brand']);
 $selling_price = ucwords($_POST['selling_price']);
 $revenue = ucwords($_POST['revenue']);
+$category = ucwords($_POST['category']);
 $id = $_GET['id'];
 
 
@@ -18,7 +19,8 @@ $sql = "UPDATE `items` SET
 `price`='$price',
 `brand`='$brand',
 `selling_price`='$selling_price',
-`revenue`='$revenue'
+`revenue`='$revenue',
+`category`='$category'
 Where item_number = $id";
 mysqli_query($conn, $sql);
 
