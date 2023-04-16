@@ -12,20 +12,32 @@ $page = 'POS'; ?>
 
 <main>
     <div style="position:absolute"><span id="datetime"></span></div>
-    <script src="../assets/js/time.js"></script> <?php 
-if (isset($_GET['message'])) {
+    <script src="../assets/js/time.js"></script>
+    <?php 
+    if (isset($_GET['message'])) {
      $message = $_GET['message'];?>
     <div class="alert-boxs success_alert"><?php echo $message ?></div>
     <script>
     $("div.success_alert").fadeIn(300).delay(2000).fadeOut(400);
     </script>
     <?php } ?>
+
+    <?php 
+    if (isset($_GET['error'])) {
+     $message = $_GET['error'];?>
+    <div class="alert-boxs success_alert" style="background:red;"><?php echo $message ?></div>
+    <script>
+    $("div.success_alert").fadeIn(300).delay(2000).fadeOut(400);
+    </script>
+    <?php } ?>
+    
+    
     <div class="row mt-4 g-3">
         <div class="col-lg-7 col-md-12">
-            <div class="card ">
+            <div class="card">
                 <div class="card-header">
                     <div style="font-weight: bold;padding: 5px; font-size:20px;">
-                        Category
+                        PRODUCTS
                         <input class="searchp" type='text' id='searchp' placeholder="Search Product" />
                     </div>
                     <div class="test" style="font-weight: bold;padding: 5px; font-size:20px;">

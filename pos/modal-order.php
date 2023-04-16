@@ -24,7 +24,7 @@
                       <div class="col-12">
                           <label class="form-label" style="color: black; font-weight: bold;"> Customer Name :</label>
                           <br>
-                          <input class="modal-input" type="text" id="customer" name="customer" placeholder="Optional"
+                          <input class="modal-input" type="text" id="customer" name="customer" placeholder="Optional" autocomplete="off"
                               style=" width: 100%; text-align:center;">
                       </div>
                       <br>

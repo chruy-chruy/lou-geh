@@ -42,7 +42,7 @@
         </li>
         <li class="nav__link <?php if ($page == 'Category') {echo 'nav__active';} ?>">
             <a href="../category/">
-                <i class='bx bxs-cart-alt'></i>
+                <i class='bx bxs-category'></i>
                 <span>Category</span>
             </a>
         </li>

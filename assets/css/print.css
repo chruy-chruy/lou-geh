@@ -107,7 +107,7 @@ button {
 }
 @media print {
   @page {
-    margin: 3mm;
+    margin-top: 30px;
   }
 
   .hidden-print,

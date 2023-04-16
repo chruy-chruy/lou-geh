@@ -26,7 +26,7 @@
                       Customer: <?php if ($sale_transaction['customer_name']){echo $sale_transaction['customer_name'];}
                       else echo "Walk-In" ?>
                       <br>
-                      Cashier: <?php echo $sold_by;?>
+                      Sold By: <?php echo $sold_by;?>
                   </h6>
                   <p class="mb-0" style="color: #35558a;">Payment summary</p>
                   <hr class="mt-2 mb-4"

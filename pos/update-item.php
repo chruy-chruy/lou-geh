@@ -27,6 +27,9 @@ if($quantity == $pos["quantity"]){
 else if($stock < $quantity){
  header("location:index.php?error=Invalid Quantity");
 }
+else if($quantity <= 0){
+    header("location:index.php?error=Invalid Quantity");
+}
 else if($stock >= $quantity){
 
 $update_stocks = $quantity - $pos["quantity"];
@@ -34,7 +37,7 @@ $update_stocks = $quantity - $pos["quantity"];
 $sql =  "UPDATE `items` SET `quantity`= items.quantity-$update_stocks WHERE item_number = $item_number";
 mysqli_query($conn, $sql); 
 // update pos
-$sql2 = "UPDATE `pos` SET `quantity`='$quantity' WHERE pos_id = $pos_id";
+$sql2 = "UPDATE `pos` SET `quantity`='$quantity', `total_price`='$total' WHERE pos_id = $pos_id";
 mysqli_query($conn, $sql2); 
     
 header("location:index.php?message=Update Product Succes!");

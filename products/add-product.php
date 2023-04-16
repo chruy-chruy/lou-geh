@@ -29,8 +29,8 @@ include "../db_conn.php";
 
                 <div class="col-6">
                     <label class="form-label">Category</label>
-                    <select class="form-control" name="category" id="">
-                        <option disabled hidden value="--" selected>--</option>
+                    <select class="form-control" name="category" id="" required>
+                        <option disabled hidden value="" selected>--</option>
                         <?php 
    $squery =  mysqli_query($conn, "SELECT * from category Where del_status != 'deleted'");
          while ($row = mysqli_fetch_array($squery)) {
