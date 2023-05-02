@@ -42,10 +42,11 @@ a {
   border-radius: 15px;
   background: #fdfdfd;
   width: 450px;
-  box-shadow: 5px 5px #246b51;
+  box-shadow: 5px 5px 10px #079e678c;
+  /* box-shadow: 0px 1px 20px rgba(153, 153, 153, 0.514); */
 }
 .login__logo {
-  width: 90px;
+  width: 150px;
   margin-bottom: 20px;
 }
 .login__input {
@@ -102,7 +103,7 @@ a {
   color: #fefefe !important;
 }
 .nav__logo img {
-  width: 32px;
+  width: 60px;
 }
 .nav__logo:hover {
   background: transparent !important;
@@ -193,11 +194,11 @@ th {
 .button1 {
   background-color: #ffffff7c;
   color: black;
-  border: 5px solid #4f9645;
-  box-shadow: 5px 5px #4e96455b;
+  border: 3px solid #4f9645;
+  box-shadow: 5px 5px 5px #494e505b;
   text-align: center;
-  height: 12vh;
-  width: 21vh;
+  height: 10vh;
+  width: 18vh;
   font-size: 2vh;
   overflow: hidden; 
   text-overflow: ellipsis;
@@ -208,9 +209,10 @@ th {
   background-color: #6ee240b0;
   font-size: 15px;
   color: rgb(5, 5, 5);
-  height: 18vh;
-  width: 22vh;
-  border: 3px groove #4f9645;
+  height: 12vh;
+  width: 20vh;
+  overflow:visible;
+  /* border: 3px groove #4f9645; */
 }
 
 .products_list{

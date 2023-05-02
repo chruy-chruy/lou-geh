@@ -2,7 +2,7 @@
 <nav class="nav bg-white">
     <ul class="nav__list">
         <li class="nav__link nav__logo">
-            <img src="../assets/images/logo.png" alt="">
+            <img class="logo_navbar" src="../assets/images/logo.png" alt="">
             <span>SAVESEGROW POS</span>
         </li>
 
