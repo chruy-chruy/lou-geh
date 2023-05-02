@@ -30,8 +30,8 @@ if(isset($_GET['message'])){
                 </thead>
                 <tbody>
                     <?php
-                       $squery =  mysqli_query($conn, "SELECT * from category Where del_status != 'deleted'");
-                       while ($row = mysqli_fetch_array($squery)) {
+                       $sql =  mysqli_query($conn, "SELECT * from category Where del_status != 'deleted'");
+                       while ($row = mysqli_fetch_array($sql)) {
    
                        ?>
                     <tr>

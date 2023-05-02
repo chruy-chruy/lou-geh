@@ -81,12 +81,12 @@ $page = 'POS'; ?>
                                 while ($row = mysqli_fetch_array($squery)){                  
                             ?>
                         <div class="col-lg-3 col-md-6 show">
-                            <div class="card dashboard__card">
+                            <div class="">
                                 <!-- Trigger/Open The Modal -->
                                 <button class="products button1" data-toggle="modal"
                                     data-target="#edit_<?php echo $row['item_number'];?>">
                                     <div class="card-body">
-                                        <div class="row products_list"
+                                        <div class="products products_list"
                                             style="font-weight: bold;  font-family: Poppins, sans-serif">
                                             <?php echo $row['name'];?>
                                         </div>
@@ -99,12 +99,12 @@ $page = 'POS'; ?>
                                 $squery = mysqli_query($conn,"SELECT * from items Where category = '$category' AND del_status != 'deleted'");
                                 while ($row = mysqli_fetch_array($squery)){?>
                         <div class="col-lg-3 col-md-6 show">
-                            <div class="card dashboard__card">
+                            <div class="">
                                 <!-- Trigger/Open The Modal -->
                                 <button class="products button1" data-toggle="modal"
                                     data-target="#edit_<?php echo $row['item_number'];?>">
                                     <div class="card-body">
-                                        <div class="row products_list"
+                                        <div class=" products_list"
                                             style="font-weight: bold;  font-family: Poppins, sans-serif">
                                             <?php echo $row['name'];?>
                                         </div>
@@ -117,12 +117,12 @@ $page = 'POS'; ?>
                                 while ($row = mysqli_fetch_array($squery)){                  
                             ?>
                         <div class="col-lg-3 col-md-6 show">
-                            <div class="card dashboard__card">
+                            <div class="">
                                 <!-- Trigger/Open The Modal -->
                                 <button class="products button1" data-toggle="modal"
                                     data-target="#edit_<?php echo $row['item_number'];?>">
                                     <div class="card-body">
-                                        <div class="row products_list"
+                                        <div class=" products_list"
                                             style="font-weight: bold;  font-family: Poppins, sans-serif">
                                             <?php echo $row['name'];?>
                                         </div>

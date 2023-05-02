@@ -55,7 +55,7 @@ if($print == 'on'){
     // header("location:receipt.php?transaction_id=$last_id");
 ?>
 <script>
-var printWindow = window.open('./receipt.php?transaction_id=<?php echo $last_id;?>');
+window.open('./receipt.php?transaction_id=<?php echo $last_id;?>');
 back();
 
 function back() {
