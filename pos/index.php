@@ -70,7 +70,7 @@ $page = 'POS'; ?>
                         </form>
                     </div>
                 </div>
-                <div class="card-body table-responsive" style="max-width: 100%; height: 350px; overflow: auto;">
+                <div class="card-body table-responsive" style="max-width: 100%; height: 345px; overflow: auto;">
                     <div class="row g-3 mb-3">
                         <?php
                         
@@ -193,7 +193,7 @@ $page = 'POS'; ?>
                         disabled>ORDER</button>
                     <?php }?>
                     <?php  include "modal-order.php"; ?>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>

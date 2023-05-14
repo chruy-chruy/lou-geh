@@ -47,7 +47,7 @@ if (isset($_GET['message'])) {
                         <td><?php echo $row['selling_price']; ?></td>
                         <td>
                             <a href="edit-product.php?id=<?php echo $row['item_number']; ?>">
-                                <div class="btn btn-secondary btn-sm">View</div>
+                                <div class="btn btn-blue btn-sm">View</div>
                             </a>
                         </td>
                     </tr>

@@ -24,7 +24,7 @@ th {
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
-  background-color: #108b47;
+  background-color: #3eb489;
   color: white;
   text-align: center;
 }
@@ -41,7 +41,7 @@ button {
   cursor: pointer;
   border-radius: 50%;
   border: none;
-  background-color: #1f9103;
+  background-color: #3eb489;
   color: rgb(241, 241, 241);
   box-shadow: 2px 2px #424141;
   position: fixed;

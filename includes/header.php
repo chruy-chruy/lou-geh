@@ -1,12 +1,12 @@
 <header class="header d-flex align-items-center justify-content-center">
-    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'Dashboard') {echo 'Dashboard';} ?></h3>
-    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'POS') {echo 'Point of Sale';} ?></h3>
-    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'Sale Transaction') {echo 'Sales Report';} ?></h3>
-    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'Inventory Report') {echo 'Inventory Report';} ?>
+    <h3 style=" font-weight: 500; color:white; font-size: 22px; "><?php if ($page == 'Dashboard') {echo 'Dashboard';} ?></h3>
+    <h3 style=" font-weight: 500; color:white; font-size: 22px; "><?php if ($page == 'POS') {echo 'Point of Sale';} ?></h3>
+    <h3 style=" font-weight: 500; color:white; font-size: 22px; "><?php if ($page == 'Sale Transaction') {echo 'Sales Report';} ?></h3>
+    <h3 style=" font-weight: 500; color:white; font-size: 22px; "><?php if ($page == 'Inventory Report') {echo 'Inventory Report';} ?>
     </h3>
-    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'Product List') {echo 'Product List';} ?></h3>
-    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'User') {echo 'Users';} ?></h3>
-    <h3 style=" font-weight: bold; color:white;"><?php if ($page == 'Category') {echo 'Category';} ?></h3>
+    <h3 style=" font-weight: 500; color:white; font-size: 22px; "><?php if ($page == 'Product List') {echo 'Product List';} ?></h3>
+    <h3 style=" font-weight: 500; color:white; font-size: 22px; "><?php if ($page == 'User') {echo 'Users';} ?></h3>
+    <h3 style=" font-weight: 500; color:white; font-size: 22px; "><?php if ($page == 'Category') {echo 'Category';} ?></h3>
 
 
 </header>

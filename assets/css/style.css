@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 body {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif !important;
+  font-family: 'Lato', sans-serif;
   display: flex;
   overflow-x: hidden;
 }
@@ -59,6 +60,8 @@ a {
 }
 
 .header {
+  font-family:'Bebas Neue',sans-serif;
+  font-weight: bold;
   position: fixed;
   background: #3eb489;
   top: 0;
@@ -92,18 +95,20 @@ a {
   /* box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.973); */
 }
 .nav__logo {
-  margin-bottom: 7px !important;
-  padding: 10px 12px;
+  margin-bottom: 11px !important;
+  /* padding: 11px 11px; */
   display: flex;
   align-items: center;
   gap: 7px;
 }
 .nav__logo span {
   font-weight: 600;
+  font-size: 20px;
+  font-family: 'Bebas Neue', sans-serif ;
   color: #fefefe !important;
 }
 .nav__logo img {
-  width: 60px;
+  width: 80px;
 }
 .nav__logo:hover {
   background: transparent !important;
@@ -141,6 +146,7 @@ a {
 }
 .nav__link.nav__user span {
   font-weight: 500;
+
 }
 .nav__active {
   background: #37a17b;
@@ -151,6 +157,11 @@ a {
 .nav__active span,
 .nav__active i {
   color: #fefefe !important;
+}
+
+
+.nav__link span{
+  font-weight: bold;
 }
 
 .card-header,

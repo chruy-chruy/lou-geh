@@ -3,7 +3,7 @@
     <ul class="nav__list">
         <li class="nav__link nav__logo">
             <img class="logo_navbar" src="../assets/images/logo.png" alt="">
-            <span>SAVESEGROW POS</span>
+            <span >SAVESEGROW POINT OF SALE</span>
         </li>
 
         <!-- <li class="nav__link <?php if ($page == 'Dashboard') {echo 'nav__active';} ?>">

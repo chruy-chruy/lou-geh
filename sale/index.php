@@ -73,7 +73,10 @@ button {
                         value="<?php echo $date_from ?>">
                     <input hidden type="date" name="date_to" id="" onchange="dateFilter()"
                         value="<?php echo $date_to ?>">
-                    <button class="Button Button--outline" onclick="printDiv()"><i class="gg-printer"></i></button>
+                    <button class="btn btn-primary" onclick="printDiv()">
+                    <!-- <i class="gg-printer"></i> -->
+                    PRINT
+                </button>
                 </form>
             </div>
         </div>
@@ -129,7 +132,7 @@ button {
                         <td><?php echo $row['total'] ?></td>
                         <td><?php echo date("l, F j Y g:i A", strtotime($row["created_at"])); ?></td>
                         <td>
-                            <div class="btn btn-secondary btn-sm" data-toggle="modal"
+                            <div class="btn btn-blue btn-sm" data-toggle="modal"
                                 data-target="#view_<?php echo $row['transaction_no'] ?>">View</div>
                         </td>
                     </tr>

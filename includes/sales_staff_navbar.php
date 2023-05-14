@@ -3,7 +3,7 @@
     <ul class="nav__list">
         <li class="nav__link nav__logo">
             <img class="logo_navbar" src="../assets/images/logo.png" alt="">
-            <span>SAVESEGROW POS</span>
+            <span >SAVESEGROW POINT OF SALE</span>
         </li>
 
         <!-- <li class="nav__link <?php if ($page == 'Dashboard') {echo 'nav__active';} ?>">
@@ -16,7 +16,7 @@
         <li class="nav__link <?php if ($page == 'POS') {echo 'nav__active';} ?>">
             <a href="../pos/">
                 <i class='bx bxs-tachometer'></i>
-                <span>POS</span>
+                <span>Point of Sale</span>
             </a>
         </li>
 

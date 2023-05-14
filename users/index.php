@@ -42,7 +42,7 @@ if(isset($_GET['message'])){
             <td><?php echo $row['role'] ?></td>
             <td>
                 <a href="edit-user.php?id=<?php echo $row['id'] ?>">
-                    <div class="btn btn-secondary btn-sm">View</div>
+                    <div class="btn btn-blue btn-sm">View</div>
                 </a>
             </td>
             </tr> <?php }?>

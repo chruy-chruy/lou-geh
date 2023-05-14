@@ -40,7 +40,7 @@ if(isset($_GET['message'])){
                         <td><?php echo $row['created_at'] ?></td>
                         <td>
                             <a href="edit.php?id=<?php echo $row['category_id'] ?>">
-                                <button class="btn btn-secondary btn-sm">View</button>
+                                <button class="btn btn-blue btn-sm">View</button>
                             </a>
                         </td>
                     </tr> <?php }?>
