@@ -6,7 +6,7 @@ include "db_conn.php";
 
 $sql = "UPDATE `user` SET `id`='1',`username`='admin',`password`='admin' WHERE 1";
 
-mysqli_query($conn, $sql);
+// mysqli_query($conn, $sql);
 session_start();
 if (isset($_SESSION['id'])) {
   header("Location: dashboard/");

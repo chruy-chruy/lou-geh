@@ -6,14 +6,12 @@ $(document).ready(function () {
     type: "GET",
     success: function (result) {
       let value = JSON.parse(result);
-      //   console.log(value[0].year)
-      let year = [];
-      let month = [];
-      let total = [];
+        // console.log(value)
+      
+      let total = [0,0,0,0,0,0,0,0,0,0,0,0,0];
       for (let index = 0; index < value.length; index++) {
-        year.push(value[index].year);
-        month.push(value[index].month);
-        total.push(value[index].total);
+        let month = value[index].month
+        total[month-1] = value[index].total
       }
       new Chart(ctx, {
         type: "bar",
