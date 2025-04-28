@@ -2,8 +2,8 @@
 <nav class="nav bg-white">
     <ul class="nav__list">
         <li class="nav__link nav__logo">
-            <img class="logo_navbar" src="../assets/images/logo.png" alt="">
-            <span >SAVESEGROW POINT OF SALE</span>
+            <!-- <img class="logo_navbar" src="../assets/images/logo.png" alt=""> -->
+            <span style="text-align: center; margin-top: 60px;">Online Sales and Inventory Management System</span>
         </li>
 
         <!-- <li class="nav__link <?php if ($page == 'Dashboard') {echo 'nav__active';} ?>">

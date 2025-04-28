@@ -29,7 +29,7 @@ $sold_by = $_SESSION['fullName'];
         <center id="top">
             <img id="logo" src="../assets/images/logo.png" alt="Logo">
             <div class="info">
-                <h2>SAVESEGROW POS</h2>
+                <h2>Online Sales and Inventory Management System</h2>
             </div>
             <!--End Info-->
         </center>
@@ -38,8 +38,8 @@ $sold_by = $_SESSION['fullName'];
         <div id="mid">
             <div class="info">
                 <p>
-                    Malandag Public Market, Sampaguita St., Cor. Molave St, Malungon, Sarangani
-                    savesegrow@gmail.com
+                    Online Sales and Inventory Management System
+                    pos@gmail.com
                     09123456789
                 </p>
             </div>

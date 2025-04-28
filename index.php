@@ -34,9 +34,9 @@ if (isset($_SESSION['id'])) {
     </script>
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <!-- <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico"> -->
 
-    <title>SAVESEGROW Point Of Sale System</title>
+    <title>Online Sales and Inventory Management System</title>
 </head>
 
 <body>
@@ -46,7 +46,7 @@ if (isset($_SESSION['id'])) {
 
         <form action="check_login.php" class="login__form" method="POST">
             <div class="form-outline mb-4 text-center">
-                <h4>SAVESEGROW <br> Point Of Sale System</h4>
+                <h4>Online Sales and Inventory Management System</h4>
             </div>
             <!-- Email input -->
             <div class="form-outline mb-3">

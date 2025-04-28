@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2023 at 06:31 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 28, 2025 at 04:12 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `category_id` int(11) NOT NULL,
+  `name` varchar(225) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `del_status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`category_id`, `name`, `created_at`, `del_status`) VALUES
+(2, 'Category Test', '2025-04-28', ''),
+(3, '	Category Test 2', '2025-04-28', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customer`
 --
 
@@ -35,15 +56,6 @@ CREATE TABLE `customer` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `del_status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `customer`
---
-
-INSERT INTO `customer` (`customer_number`, `name`, `contact_number`, `address`, `created_at`, `del_status`) VALUES
-(0004, 'Customer 1', '09256536985', 'Address Test', '2023-02-10 15:34:33', ''),
-(0005, 'Customer 2 New', '09652636987', 'Address 2 New', '2023-02-10 17:37:59', ''),
-(0006, 'Customer 3', '09569875741', 'Customer 3 Address', '2023-02-10 17:40:03', '');
 
 -- --------------------------------------------------------
 
@@ -61,6 +73,7 @@ CREATE TABLE `items` (
   `brand` varchar(225) NOT NULL,
   `selling_price` double NOT NULL,
   `revenue` double NOT NULL,
+  `category` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `del_status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -69,10 +82,9 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`item_number`, `name`, `barcode`, `details`, `quantity`, `price`, `brand`, `selling_price`, `revenue`, `created_at`, `del_status`) VALUES
-(0015, 'Saging', '', 'Test', '4', 10000, 'Asus', 11000, 12000, '2023-02-13 09:26:57', ''),
-(0016, 'Bugas', '', 'Test', '95', 850, 'Asus', 1000, 15000, '2023-02-13 09:26:57', ''),
-(0017, 'Egg Tray', '', 'Test Eggg', '200', 200, '123', 230, 6000, '2023-04-09 00:12:52', '');
+INSERT INTO `items` (`item_number`, `name`, `barcode`, `details`, `quantity`, `price`, `brand`, `selling_price`, `revenue`, `category`, `created_at`, `del_status`) VALUES
+(0004, 'Test Product 1', '', 'Test Details', '199', 150, 'Brand 1', 200, 0, 'Category Test', '2025-04-28 21:37:43', ''),
+(0005, 'Test Product 1', '', 'Test Test', '100', 50, 'Brand 2', 65, 0, '	Category Test 2', '2025-04-28 21:39:15', '');
 
 -- --------------------------------------------------------
 
@@ -89,15 +101,30 @@ CREATE TABLE `pos` (
   `total_price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `pos`
+-- Table structure for table `product_sale`
 --
 
-INSERT INTO `pos` (`pos_id`, `item_number`, `product_name`, `quantity`, `price`, `total_price`) VALUES
-(1, '0015', 'Saging', 2, 11000, 22000),
-(2, '0016', 'Bugas', 3, 1000, 3000),
-(3, '0015', 'Saging', 2, 11000, 22000),
-(4, '0016', 'Bugas', 2, 1000, 2000);
+CREATE TABLE `product_sale` (
+  `product_sale_number` int(4) UNSIGNED ZEROFILL NOT NULL,
+  `transaction_number` int(4) UNSIGNED ZEROFILL NOT NULL,
+  `item_number` varchar(255) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `quantity` int(100) NOT NULL,
+  `price` double NOT NULL,
+  `total_price` double NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `del_status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product_sale`
+--
+
+INSERT INTO `product_sale` (`product_sale_number`, `transaction_number`, `item_number`, `product_name`, `quantity`, `price`, `total_price`, `created_at`, `del_status`) VALUES
+(0003, 0003, '0004', ' Test Product 1', 1, 200, 200, '2025-04-28 21:39:40', 0);
 
 -- --------------------------------------------------------
 
@@ -121,16 +148,6 @@ CREATE TABLE `purchase_transaction` (
   `del_status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `purchase_transaction`
---
-
-INSERT INTO `purchase_transaction` (`transaction_no`, `supplier_code`, `item_name`, `brand`, `details`, `quantity`, `price`, `total_cost`, `date`, `date_delivered`, `status`, `created_at`, `del_status`) VALUES
-(0016, '0003', '', 'Asus', 'Deliever Asap', 100, 850, 85000, '2023-02-11', '2023-02-14', '', '2023-02-10 15:16:07', 'deleted'),
-(0017, '0003', 'Asus Mouse', 'Asus', 'Deliever Asap', 100, 850, 85000, '2023-02-11', '', 'Cancelled', '2023-02-10 15:16:37', ''),
-(0019, '0003', 'Asus Tuf Mouse', 'Asus', 'Sad', 20, 750, 15000, '2023-02-15', '', 'Pending', '2023-02-14 10:32:10', ''),
-(0020, '0003', 'Test', 'Test', 'Wqeqe', 2, 3, 6, '2023-02-14', '2023-02-15', 'Received', '2023-02-14 14:34:13', '');
-
 -- --------------------------------------------------------
 
 --
@@ -139,11 +156,12 @@ INSERT INTO `purchase_transaction` (`transaction_no`, `supplier_code`, `item_nam
 
 CREATE TABLE `sale_transaction` (
   `transaction_no` int(4) UNSIGNED ZEROFILL NOT NULL,
-  `customer_name` varchar(255) NOT NULL,
+  `customer_name` varchar(255) NOT NULL DEFAULT 'Walk-In',
   `item_name` varchar(255) NOT NULL,
   `quantity` int(100) NOT NULL,
-  `price` double NOT NULL,
+  `amount` double NOT NULL,
   `total` double NOT NULL,
+  `change` double NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `sold_by` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -152,11 +170,8 @@ CREATE TABLE `sale_transaction` (
 -- Dumping data for table `sale_transaction`
 --
 
-INSERT INTO `sale_transaction` (`transaction_no`, `customer_name`, `item_name`, `quantity`, `price`, `total`, `created_at`, `sold_by`) VALUES
-(0006, 'Customer', 'Asus Tuf Mouse', 2, 1000, 2000, '2023-02-10 17:29:53', 'Admin'),
-(0007, 'Customer 3', 'Asus Tuf Mouse', 2, 1000, 2000, '2023-02-10 17:40:03', 'Admin'),
-(0008, 'Customer', 'TUF Gaming VG258QM', 2, 11000, 22000, '2023-04-06 23:11:44', 'SuperAdmin (Admin)'),
-(0009, 'Customer', 'TUF Gaming VG258QM', 2, 11000, 22000, '2023-04-06 23:11:51', 'SuperAdmin (Admin)');
+INSERT INTO `sale_transaction` (`transaction_no`, `customer_name`, `item_name`, `quantity`, `amount`, `total`, `change`, `created_at`, `sold_by`) VALUES
+(0003, 'Test', '', 0, 300, 200, 100, '2025-04-28 21:39:40', 'SuperAdmin (Admin) ');
 
 -- --------------------------------------------------------
 
@@ -173,13 +188,6 @@ CREATE TABLE `supplier` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `del_status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `supplier`
---
-
-INSERT INTO `supplier` (`supplier_code`, `name`, `company_name`, `contact_number`, `address`, `created_at`, `del_status`) VALUES
-(0003, 'Asus', 'Asus Tech', '09658554236', 'KCC Gensan', '2023-02-10 13:52:20', '');
 
 -- --------------------------------------------------------
 
@@ -202,12 +210,18 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `fullName`, `role`, `del_status`) VALUES
 (1, 'admin', 'admin', 'SuperAdmin', 'Admin', ''),
-(3, 'admin', 'admin', 'Troy Michael Garidos', 'Sales Staff', ''),
-(6, 'admin', 'admin', 'Test', 'Inventory Staff', '');
+(3, 'sales', '1234', 'Bella Cruz', 'Cashier', ''),
+(6, 'inventory', '1234', 'Coco Martin', 'Inventory Staff', '');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- Indexes for table `customer`
@@ -226,6 +240,12 @@ ALTER TABLE `items`
 --
 ALTER TABLE `pos`
   ADD PRIMARY KEY (`pos_id`);
+
+--
+-- Indexes for table `product_sale`
+--
+ALTER TABLE `product_sale`
+  ADD PRIMARY KEY (`product_sale_number`);
 
 --
 -- Indexes for table `purchase_transaction`
@@ -256,40 +276,52 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_number` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `customer_number` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_number` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `item_number` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pos`
 --
 ALTER TABLE `pos`
-  MODIFY `pos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pos_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `product_sale`
+--
+ALTER TABLE `product_sale`
+  MODIFY `product_sale_number` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `purchase_transaction`
 --
 ALTER TABLE `purchase_transaction`
-  MODIFY `transaction_no` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `transaction_no` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sale_transaction`
 --
 ALTER TABLE `sale_transaction`
-  MODIFY `transaction_no` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `transaction_no` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `supplier_code` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `supplier_code` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`

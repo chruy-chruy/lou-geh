@@ -18,14 +18,14 @@ function asPesos($value) {
 </head>
 
 <body>
-    <img class="logo" src="../assets/images/logo.png" alt="">
+    <!-- <img class="logo" src="../assets/images/logo.png" alt="">
     <h5> Malandag Public Market, Sampaguita St.
         <br> Cor. Molave St, Malungon, Sarangani
         <br>
         savesegrow@gmail.com
         <br>
         09123456789
-    </h5>
+    </h5> -->
     <h1>Inventory Report</h1>
     <div id="printBtn" class="hidden-print">
         <button class="Button Button--outline" onclick="printDiv()"><i class="gg-printer"></i></button>
