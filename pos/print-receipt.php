@@ -67,7 +67,7 @@
 
 <body>
     <div class="ticket">
-        <img src="./logo.png" alt="Logo">
+        <!-- <img src="./logo.png" alt="Logo"> -->
         <p class="centered">RECEIPT EXAMPLE
             <br>Address line 1
             <br>Address line 2

@@ -27,7 +27,7 @@ $sold_by = $_SESSION['fullName'];
     <div id="invoice-POS">
 
         <center id="top">
-            <img id="logo" src="../assets/images/logo.png" alt="Logo">
+            <!-- <img id="logo" src="../assets/images/logo.png" alt="Logo"> -->
             <div class="info">
                 <h2>Online Sales and Inventory Management System</h2>
             </div>
@@ -36,13 +36,13 @@ $sold_by = $_SESSION['fullName'];
         <!--End InvoiceTop-->
 
         <div id="mid">
-            <div class="info">
+            <!-- <div class="info">
                 <p>
                     Online Sales and Inventory Management System
                     pos@gmail.com
                     09123456789
                 </p>
-            </div>
+            </div> -->
 
             <p>
                 Transaction No: <?php echo $sale_transaction['transaction_no'];?>
